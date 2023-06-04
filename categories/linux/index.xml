@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <lastBuildDate>Fri, 04 Mar 2022 21:12:03 +0800</lastBuildDate><atom:link href="https://Ocancel.GitHub.io/categories/linux/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Linux &gt;&gt; Tail</title>
+        <title>Linux Tail</title>
         <link>https://Ocancel.GitHub.io/post/linux-tail/</link>
         <pubDate>Fri, 04 Mar 2022 21:12:03 +0800</pubDate>
         
@@ -67,13 +67,173 @@
 &lt;li&gt;&lt;code&gt;b&lt;/code&gt;：512&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;kB&lt;/code&gt;：1000&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;k&lt;/code&gt;：1024&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;MB&lt;/code&gt;：1000**2&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;M&lt;/code&gt;：1024**2&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;GB&lt;/code&gt;：1000**3&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;G&lt;/code&gt;：1024**3&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;MB&lt;/code&gt;：1000&lt;sup&gt;2&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;M&lt;/code&gt;：1024&lt;sup&gt;2&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;GB&lt;/code&gt;：1000&lt;sup&gt;3&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;G&lt;/code&gt;：1024&lt;sup&gt;3&lt;/sup&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;T&lt;/code&gt;、&lt;code&gt;P&lt;/code&gt;、&lt;code&gt;E&lt;/code&gt;、&lt;code&gt;Z&lt;/code&gt;、&lt;code&gt;Y&lt;/code&gt;等以此类推。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Linux chmod</title>
+        <link>https://Ocancel.GitHub.io/post/linux-chmod/</link>
+        <pubDate>Thu, 20 Aug 2020 10:28:53 +0800</pubDate>
+        
+        <guid>https://Ocancel.GitHub.io/post/linux-chmod/</guid>
+        <description>&lt;h3 id=&#34;文件目录-的权限包括&#34;&gt;&lt;strong&gt;文件／目录&lt;/strong&gt; 的权限包括：&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;权限&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;英文&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;缩写&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;数字代码&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;读&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;read&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;r&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;写&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;write&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;w&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;执行&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;execute&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;x&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;文件目录-的权限格式-rwxrwxrwx&#34;&gt;&lt;strong&gt;文件／目录&lt;/strong&gt; 的权限格式：&lt;code&gt;-rwxrwxrwx&lt;/code&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;第一个符号代表文件类型，&amp;quot;-&amp;quot; 符号表示该文件是非目录类型，&amp;ldquo;d&amp;rdquo; 符号表示目录类型。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;没有相应权限则使用 “-” 符号替代。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;文件目录-的权限详解&#34;&gt;&lt;strong&gt;文件／目录&lt;/strong&gt; 的权限详解：&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;类型&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;类型符号&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;拥有者权限 [user]&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;所在组权限[group]&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;其他用户权限[other]&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;文件&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;rwx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;rwx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;rwx&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;目录&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;d&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;rwx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;rwx&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;rwx&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;修改权限&#34;&gt;修改权限&lt;/h1&gt;
+&lt;h2 id=&#34;方法一chmod-用户操作权限-文件&#34;&gt;方法一：&lt;code&gt;chmod 用户+操作+权限 文件&lt;/code&gt;&lt;/h2&gt;
+&lt;h4 id=&#34;用户部分&#34;&gt;用户部分：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;u&amp;rdquo; 表示拥有者 [user]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;g&amp;rdquo; 表示拥有者所在群组 [group]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;o&amp;rdquo; 表示其他用户 [other]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;a&amp;rdquo; 表示全部用户 [all，包含前面三种用户范围]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若不指定，默认为拥有者权限 &amp;ldquo;u&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;操作部分&#34;&gt;操作部分：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;+&amp;rdquo; 表示增加权限&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;-&amp;rdquo; 表示取消权限&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;=&amp;rdquo; 表示赋值权限&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;权限部分&#34;&gt;权限部分：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;r&amp;rdquo; 表示可读 [read]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;w&amp;rdquo; 表示可写 [write]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;ldquo;x&amp;rdquo; 表示可执行权限 [execute]&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;文件部分&#34;&gt;文件部分：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;指定文件/目录全名&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若不指定，表示操作对象为当前目录下的所有文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;注&#34;&gt;注：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;可以同时使用多种操作符添加和取消权限&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以使用 &amp;ldquo;,&amp;rdquo; 符号同时对不同用户范围修改权限&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;例&#34;&gt;例：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;指定文件 &amp;ldquo;a&amp;rdquo; 的初始权限为：&lt;code&gt;-rw-rw-r-x&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;将权限改为：&lt;code&gt;rwxr-xrw-&lt;/code&gt; 的命令为&lt;code&gt;chmod ug+x,g-w,o+w-x a&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;方法二chmod-xxx-文件-x为数字&#34;&gt;方法二：&lt;code&gt;chmod xxx 文件&lt;/code&gt; [x为数字]&lt;/h2&gt;
+&lt;h4 id=&#34;数字和权限对应关系&#34;&gt;数字和权限对应关系：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;每位数字代表对应用户类型所持有权限的代数总和&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;数字-xxx-部分&#34;&gt;数字 [xxx] 部分：&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;三个数字从前到后分别表示 u、g、o 三种用户类型的访问权限&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;补充&#34;&gt;补充：&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;递归修改目录文件及其子目录中的文件权限类型，可以使用 &lt;code&gt;-R&lt;/code&gt; 选项&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>

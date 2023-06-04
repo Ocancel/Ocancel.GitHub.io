@@ -12,8 +12,7 @@
         <pubDate>Sun, 09 Aug 2020 17:02:45 +0800</pubDate>
         
         <guid>https://Ocancel.GitHub.io/post/sorting-algorithm/</guid>
-        <description>&lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
-&lt;table&gt;
+        <description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;排序算法&lt;/th&gt;
@@ -28,27 +27,27 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;冒泡排序&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;O(n^2)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(n)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;O(n^2)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(1)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;内部排序&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;稳定&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;选择排序&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;O(n^2)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;O(n^2)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;O(n^2)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(1)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;内部排序&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;不稳定&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;插入排序&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;O(n^2)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(n)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;O(n^2)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(1)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;内部排序&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;稳定&lt;/td&gt;
@@ -56,8 +55,8 @@
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;希尔排序&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(nlogn)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;O(nlog^2n)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;O(nlog^2n)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;O(nlog&lt;sup&gt;2&lt;/sup&gt;n)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;O(nlog&lt;sup&gt;2&lt;/sup&gt;n)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(1)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;内部排序&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;不稳定&lt;/td&gt;
@@ -75,7 +74,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;快速排序&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(nlogn)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(nlogn)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;O(n^2)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(logn)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;内部排序&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;不稳定&lt;/td&gt;
@@ -102,7 +101,7 @@
 &lt;td style=&#34;text-align:center&#34;&gt;桶排序&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(n+k)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(n+k)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;O(n^2)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;O(n&lt;sup&gt;2&lt;/sup&gt;)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;O(n+k)&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;外部排序&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;稳定&lt;/td&gt;

@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='简介 显示文件的最后一部分
-语法 1 tail [OPTION] FILE... 选项 1 2 3 4 5 6 7 8 9 10 11 -c, --bytes=NUM # 输出文件尾部的NUM（NUM为整数）个字节内容。 -f, --follow[={name|descript}] # 显示文件最新追加的内容。“name”表示以文件名的方式监视文件的变化。 -F # 与 “--follow=name --retry” 功能相同。 -n, --line=NUM # 输出文件的尾部NUM（NUM位数字）行内容。 --pid=&amp;lt;进程号&amp;gt; # 与“-f”选项连用，当指定的进程号的进程终止后，自动退出tail命令。 -q, --quiet, --silent # 当有多个文件参数时，不输出各个文件名。 --retry # 即是在tail命令启动时，文件不可访问或者文件稍后变得不可访问，都始终尝试打开文件。使用此选项时需要与选项“--follow=name”连用。 -s, --sleep-interal=&amp;lt;秒数&amp;gt; # 与“-f”选项连用，指定监视文件变化时间隔的秒数。 -v, --verbose # 当有多个文件参数时，总是输出各个文件名。 --help # 显示指令的帮助信息。 --version # 显示指令的版本信息。 参数 文件列表：指定要显示尾部内容的文件列表。
-补充说明 默认在屏幕上显示指定文件的末尾10行。 处理多个文件时会在各个文件之前附加含有文件名的行。 如果没有指定文件或者文件名为-，则读取标准输入。 如果表示字节或行数的NUM值之前有一个&#43;号，则从文件开头的第NUM项开始显示，而不是显示文件的最后NUM项。 NUM值后面可以写单位： b：512 kB：1000 k：1024 MB：10002 M：10242 GB：10003 G：10243 T、P、E、Z、Y等以此类推。 '>
-<title>Linux Tail</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='当在命令行用ls -l命令查看文件列表的时候，看到文件权限后面有一个@符号，这说明该文件带有附加属性。
+1 2 3 4 --- ~ » ls -l total 0 drwx------@ 3 user staff 96 8 28 15:57 Applications drwx------@ 4 user staff 128 10 13 09:18 Desktop 查看某文件的附加属性 xattr -l filename 删除某文件的附加属性 xattr -c filename 删除某目录下所有文件、目录的附加属性 xattr -c -r path '>
+<title>macOS 文件附加属性</title>
 
-<link rel='canonical' href='https://Ocancel.GitHub.io/post/linux-tail/'>
+<link rel='canonical' href='https://Ocancel.GitHub.io/post/macos-additional-attribute/'>
 
-<link rel="stylesheet" href="/scss/style.min.1e5f7870fbfc48d4975802eb6b6265b1d223888362d707bd936024673ed72fc1.css"><meta property='og:title' content='Linux Tail'>
-<meta property='og:description' content='简介 显示文件的最后一部分
-语法 1 tail [OPTION] FILE... 选项 1 2 3 4 5 6 7 8 9 10 11 -c, --bytes=NUM # 输出文件尾部的NUM（NUM为整数）个字节内容。 -f, --follow[={name|descript}] # 显示文件最新追加的内容。“name”表示以文件名的方式监视文件的变化。 -F # 与 “--follow=name --retry” 功能相同。 -n, --line=NUM # 输出文件的尾部NUM（NUM位数字）行内容。 --pid=&amp;lt;进程号&amp;gt; # 与“-f”选项连用，当指定的进程号的进程终止后，自动退出tail命令。 -q, --quiet, --silent # 当有多个文件参数时，不输出各个文件名。 --retry # 即是在tail命令启动时，文件不可访问或者文件稍后变得不可访问，都始终尝试打开文件。使用此选项时需要与选项“--follow=name”连用。 -s, --sleep-interal=&amp;lt;秒数&amp;gt; # 与“-f”选项连用，指定监视文件变化时间隔的秒数。 -v, --verbose # 当有多个文件参数时，总是输出各个文件名。 --help # 显示指令的帮助信息。 --version # 显示指令的版本信息。 参数 文件列表：指定要显示尾部内容的文件列表。
-补充说明 默认在屏幕上显示指定文件的末尾10行。 处理多个文件时会在各个文件之前附加含有文件名的行。 如果没有指定文件或者文件名为-，则读取标准输入。 如果表示字节或行数的NUM值之前有一个&#43;号，则从文件开头的第NUM项开始显示，而不是显示文件的最后NUM项。 NUM值后面可以写单位： b：512 kB：1000 k：1024 MB：10002 M：10242 GB：10003 G：10243 T、P、E、Z、Y等以此类推。 '>
-<meta property='og:url' content='https://Ocancel.GitHub.io/post/linux-tail/'>
+<link rel="stylesheet" href="/scss/style.min.1e5f7870fbfc48d4975802eb6b6265b1d223888362d707bd936024673ed72fc1.css"><meta property='og:title' content='macOS 文件附加属性'>
+<meta property='og:description' content='当在命令行用ls -l命令查看文件列表的时候，看到文件权限后面有一个@符号，这说明该文件带有附加属性。
+1 2 3 4 --- ~ » ls -l total 0 drwx------@ 3 user staff 96 8 28 15:57 Applications drwx------@ 4 user staff 128 10 13 09:18 Desktop 查看某文件的附加属性 xattr -l filename 删除某文件的附加属性 xattr -c filename 删除某目录下所有文件、目录的附加属性 xattr -c -r path '>
+<meta property='og:url' content='https://Ocancel.GitHub.io/post/macos-additional-attribute/'>
 <meta property='og:site_name' content='Ocancel Site'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2022-03-04T21:12:03&#43;08:00'/><meta property='article:modified_time' content='2022-03-04T21:48:42&#43;08:00'/>
-<meta name="twitter:title" content="Linux Tail">
-<meta name="twitter:description" content="简介 显示文件的最后一部分
-语法 1 tail [OPTION] FILE... 选项 1 2 3 4 5 6 7 8 9 10 11 -c, --bytes=NUM # 输出文件尾部的NUM（NUM为整数）个字节内容。 -f, --follow[={name|descript}] # 显示文件最新追加的内容。“name”表示以文件名的方式监视文件的变化。 -F # 与 “--follow=name --retry” 功能相同。 -n, --line=NUM # 输出文件的尾部NUM（NUM位数字）行内容。 --pid=&amp;lt;进程号&amp;gt; # 与“-f”选项连用，当指定的进程号的进程终止后，自动退出tail命令。 -q, --quiet, --silent # 当有多个文件参数时，不输出各个文件名。 --retry # 即是在tail命令启动时，文件不可访问或者文件稍后变得不可访问，都始终尝试打开文件。使用此选项时需要与选项“--follow=name”连用。 -s, --sleep-interal=&amp;lt;秒数&amp;gt; # 与“-f”选项连用，指定监视文件变化时间隔的秒数。 -v, --verbose # 当有多个文件参数时，总是输出各个文件名。 --help # 显示指令的帮助信息。 --version # 显示指令的版本信息。 参数 文件列表：指定要显示尾部内容的文件列表。
-补充说明 默认在屏幕上显示指定文件的末尾10行。 处理多个文件时会在各个文件之前附加含有文件名的行。 如果没有指定文件或者文件名为-，则读取标准输入。 如果表示字节或行数的NUM值之前有一个&#43;号，则从文件开头的第NUM项开始显示，而不是显示文件的最后NUM项。 NUM值后面可以写单位： b：512 kB：1000 k：1024 MB：10002 M：10242 GB：10003 G：10243 T、P、E、Z、Y等以此类推。 ">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='macOS' /><meta property='article:published_time' content='2020-09-16T19:41:21&#43;08:00'/><meta property='article:modified_time' content='2020-09-16T20:01:43&#43;08:00'/>
+<meta name="twitter:title" content="macOS 文件附加属性">
+<meta name="twitter:description" content="当在命令行用ls -l命令查看文件列表的时候，看到文件权限后面有一个@符号，这说明该文件带有附加属性。
+1 2 3 4 --- ~ » ls -l total 0 drwx------@ 3 user staff 96 8 28 15:57 Applications drwx------@ 4 user staff 128 10 13 09:18 Desktop 查看某文件的附加属性 xattr -l filename 删除某文件的附加属性 xattr -c filename 删除某目录下所有文件、目录的附加属性 xattr -c -r path ">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -239,11 +236,17 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#简介">简介</a></li>
-    <li><a href="#语法">语法</a></li>
-    <li><a href="#选项">选项</a></li>
-    <li><a href="#参数">参数</a></li>
-    <li><a href="#补充说明">补充说明</a></li>
+    <li>
+      <ol>
+        <li>
+          <ol>
+            <li><a href="#查看某文件的附加属性">查看某文件的附加属性</a></li>
+            <li><a href="#删除某文件的附加属性">删除某文件的附加属性</a></li>
+            <li><a href="#删除某目录下所有文件目录的附加属性">删除某目录下所有文件、目录的附加属性</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -262,8 +265,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/linux/" >
-                Linux
+            <a href="/categories/apple/" >
+                Apple
             </a>
         
     </header>
@@ -271,7 +274,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/post/linux-tail/">Linux Tail</a>
+            <a href="/post/macos-additional-attribute/">macOS 文件附加属性</a>
         </h2>
     
         
@@ -285,7 +288,7 @@
         
             <div>
                 <svg t="1685552137132" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2696" width="200" height="200"><path d="M725.333333 170.666667h74.709334C864.853333 170.666667 917.333333 223.189333 917.333333 288.096V799.893333C917.333333 864.757333 864.832 917.333333 800.042667 917.333333H223.957333C159.146667 917.333333 106.666667 864.810667 106.666667 799.904V288.106667C106.666667 223.242667 159.168 170.666667 223.957333 170.666667H298.666667v-32a32 32 0 0 1 64 0v32h298.666666v-32a32 32 0 0 1 64 0v32z m0 64v32a32 32 0 0 1-64 0v-32H362.666667v32a32 32 0 0 1-64 0v-32h-74.709334A53.354667 53.354667 0 0 0 170.666667 288.096V799.893333A53.301333 53.301333 0 0 0 223.957333 853.333333h576.085334A53.354667 53.354667 0 0 0 853.333333 799.904V288.106667A53.301333 53.301333 0 0 0 800.042667 234.666667H725.333333z m-10.666666 224a32 32 0 0 1 0 64H309.333333a32 32 0 0 1 0-64h405.333334zM586.666667 618.666667a32 32 0 0 1 0 64H309.333333a32 32 0 0 1 0-64h277.333334z" fill="currentColor" p-id="2697"></path></svg>
-                <time class="article-time--published">Mar 04 2022</time>
+                <time class="article-time--published">Sep 16 2020</time>
             </div>
         
 
@@ -308,68 +311,32 @@
     <section class="article-content">
     
     
-    <h2 id="简介">简介</h2>
-<blockquote>
-<p>显示文件的最后一部分</p>
-</blockquote>
-<h2 id="语法">语法</h2>
+    <p>当在命令行用<code>ls -l</code>命令查看文件列表的时候，看到文件权限后面有一个<code>@</code>符号，这说明该文件带有附加属性。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">tail <span class="o">[</span>OPTION<span class="o">]</span> FILE...
+<pre tabindex="0" class="chroma"><code class="language-Shell" data-lang="Shell"><span class="line"><span class="cl">--- ~ » ls -l
+</span></span><span class="line"><span class="cl">total <span class="m">0</span>
+</span></span><span class="line"><span class="cl">drwx------@ <span class="m">3</span> user staff <span class="m">96</span> <span class="m">8</span> <span class="m">28</span> 15:57 Applications
+</span></span><span class="line"><span class="cl">drwx------@ <span class="m">4</span> user staff <span class="m">128</span> <span class="m">10</span> <span class="m">13</span> 09:18 Desktop
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="选项">选项</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">-c, --bytes<span class="o">=</span>NUM                    <span class="c1"># 输出文件尾部的NUM（NUM为整数）个字节内容。</span>
-</span></span><span class="line"><span class="cl">-f, --follow<span class="o">[={</span>name<span class="p">|</span>descript<span class="o">}]</span>     <span class="c1"># 显示文件最新追加的内容。“name”表示以文件名的方式监视文件的变化。</span>
-</span></span><span class="line"><span class="cl">-F                                 <span class="c1"># 与 “--follow=name --retry” 功能相同。</span>
-</span></span><span class="line"><span class="cl">-n, --line<span class="o">=</span>NUM                     <span class="c1"># 输出文件的尾部NUM（NUM位数字）行内容。</span>
-</span></span><span class="line"><span class="cl">--pid<span class="o">=</span>&lt;进程号&gt;                      <span class="c1"># 与“-f”选项连用，当指定的进程号的进程终止后，自动退出tail命令。</span>
-</span></span><span class="line"><span class="cl">-q, --quiet, --silent              <span class="c1"># 当有多个文件参数时，不输出各个文件名。</span>
-</span></span><span class="line"><span class="cl">--retry                            <span class="c1"># 即是在tail命令启动时，文件不可访问或者文件稍后变得不可访问，都始终尝试打开文件。使用此选项时需要与选项“--follow=name”连用。</span>
-</span></span><span class="line"><span class="cl">-s, --sleep-interal<span class="o">=</span>&lt;秒数&gt;          <span class="c1"># 与“-f”选项连用，指定监视文件变化时间隔的秒数。</span>
-</span></span><span class="line"><span class="cl">-v, --verbose                      <span class="c1"># 当有多个文件参数时，总是输出各个文件名。</span>
-</span></span><span class="line"><span class="cl">--help                             <span class="c1"># 显示指令的帮助信息。</span>
-</span></span><span class="line"><span class="cl">--version                          <span class="c1"># 显示指令的版本信息。</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="参数">参数</h2>
-<p>文件列表：指定要显示尾部内容的文件列表。</p>
-<h2 id="补充说明">补充说明</h2>
+</div><h4 id="查看某文件的附加属性">查看某文件的附加属性</h4>
 <ul>
-<li>默认在屏幕上显示指定文件的末尾10行。</li>
-<li>处理多个文件时会在各个文件之前附加含有文件名的行。</li>
-<li>如果没有指定文件或者文件名为<code>-</code>，则读取标准输入。</li>
-<li>如果表示字节或行数的<code>NUM</code>值之前有一个<code>+</code>号，则从文件开头的第<code>NUM</code>项开始显示，而不是显示文件的最后<code>NUM</code>项。</li>
-<li><code>NUM</code>值后面可以写单位：
-<ul>
-<li><code>b</code>：512</li>
-<li><code>kB</code>：1000</li>
-<li><code>k</code>：1024</li>
-<li><code>MB</code>：1000<sup>2</sup></li>
-<li><code>M</code>：1024<sup>2</sup></li>
-<li><code>GB</code>：1000<sup>3</sup></li>
-<li><code>G</code>：1024<sup>3</sup></li>
-<li><code>T</code>、<code>P</code>、<code>E</code>、<code>Z</code>、<code>Y</code>等以此类推。</li>
+<li><code>xattr -l filename</code></li>
 </ul>
-</li>
+<h4 id="删除某文件的附加属性">删除某文件的附加属性</h4>
+<ul>
+<li><code>xattr -c filename</code></li>
+</ul>
+<h4 id="删除某目录下所有文件目录的附加属性">删除某目录下所有文件、目录的附加属性</h4>
+<ul>
+<li><code>xattr -c -r path</code></li>
 </ul>
 
 </section>
@@ -377,6 +344,12 @@
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/macos/">macOS</a>
+        
+    </section>
+
 
     
     <section class="article-copyright">
@@ -387,7 +360,7 @@
     <section class="article-lastmod">
         <svg t="1685582516965" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="58581" width="200" height="200"><path d="M740.23 957.13c-106.95 0-193.97-87.02-193.97-193.97s87.02-193.97 193.97-193.97S934.2 656.2 934.2 763.15s-87.02 193.98-193.97 193.98z m0-324.78c-72.12 0-130.8 58.69-130.8 130.8s58.69 130.8 130.8 130.8 130.8-58.69 130.8-130.8-58.69-130.8-130.8-130.8z" fill="currentColor" p-id="58582"></path><path d="M508.5 936.85H204.41C141.32 936.85 90 885.53 90 822.46V264.35c0-63.07 51.33-114.39 114.41-114.39h590.52c63.07 0 114.39 51.33 114.39 114.39v255.13c0 17.44-14.15 31.59-31.59 31.59-17.44 0-31.59-14.15-31.59-31.59V264.35c0-28.25-22.97-51.22-51.22-51.22H204.41c-28.25 0-51.24 22.97-51.24 51.22v558.11c0 28.25 22.99 51.22 51.24 51.22H508.5c17.44 0 31.59 14.15 31.59 31.59s-14.15 31.58-31.59 31.58z" fill="currentColor" p-id="58583"></path><path d="M318.5 270.72c-17.44 0-31.59-14.15-31.59-31.59V98.71c0-17.44 14.15-31.59 31.59-31.59s31.59 14.15 31.59 31.59v140.43c-0.01 17.44-14.16 31.58-31.59 31.58zM680.84 270.72c-17.44 0-31.59-14.15-31.59-31.59V98.71c0-17.44 14.15-31.59 31.59-31.59 17.44 0 31.59 14.15 31.59 31.59v140.43c0 17.44-14.15 31.58-31.59 31.58zM777.14 434H222.18c-17.44 0-31.59-14.15-31.59-31.59s14.15-31.59 31.59-31.59h554.96c17.44 0 31.59 14.15 31.59 31.59S794.58 434 777.14 434z" fill="currentColor" p-id="58584"></path><path d="M785.59 796.92h-42.4c-23.61 0-42.81-19.21-42.81-42.83V696.4c0-17.44 14.15-31.59 31.59-31.59 17.44 0 31.59 14.15 31.59 31.59v37.34h22.04c17.44 0 31.59 14.15 31.59 31.59s-14.16 31.59-31.6 31.59z" fill="currentColor" p-id="58585"></path></svg>
         <span>
-            最后更新于 Mar 04 2022 21:48 CST
+            最后更新于 Sep 16 2020 20:01 CST
         </span>
     </section></footer>
 
@@ -410,12 +383,12 @@
                 
                     
 <article class="">
-    <a href="/post/linux-chmod/">
+    <a href="/post/macos-icon/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Linux chmod</h2>
+            <h2 class="article-title">macOS icon</h2>
         </div>
     </a>
 </article>
