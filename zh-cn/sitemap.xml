@@ -2,19 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://Ocancel.GitHub.io/categories/</loc>
-    <lastmod>2023-09-07T11:59:23+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://Ocancel.GitHub.io/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://Ocancel.GitHub.io/categories/"
-                />
-  </url><url>
     <loc>https://Ocancel.GitHub.io/categories/database/</loc>
     <lastmod>2023-05-24T21:16:31+08:00</lastmod>
   </url><url>
@@ -61,6 +48,19 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://Ocancel.GitHub.io/tags/"
+                />
+  </url><url>
+    <loc>https://Ocancel.GitHub.io/categories/</loc>
+    <lastmod>2023-09-07T11:59:23+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://Ocancel.GitHub.io/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://Ocancel.GitHub.io/categories/"
                 />
   </url><url>
     <loc>https://Ocancel.GitHub.io/categories/spring-framework/</loc>
@@ -142,18 +142,6 @@
                 rel="alternate"
                 hreflang="zh-cn"
                 href="https://Ocancel.GitHub.io/page/"
-                />
-  </url><url>
-    <loc>https://Ocancel.GitHub.io/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://Ocancel.GitHub.io/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://Ocancel.GitHub.io/categories/"
                 />
   </url><url>
     <loc>https://Ocancel.GitHub.io/about/</loc>
