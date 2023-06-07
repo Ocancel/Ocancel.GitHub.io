@@ -12,7 +12,7 @@
         <pubDate>Tue, 07 Sep 2021 11:38:44 +0800</pubDate>
         
         <guid>https://Ocancel.GitHub.io/post/spring-bean-lifecycle/</guid>
-        <description>&lt;img src="https://cdn.jsdelivr.net/gh/Vcancel/uPicRepo@main/uPic/Bean的生命周期.png" alt="Featured image of post Spring Bean Lifecycle" /&gt;&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+        <description>&lt;img src="https://cdn.jsdelivr.net/gh/Ocancel/uPicRepo@main/uPic/Bean的生命周期-1686126016938.png" alt="Featured image of post Spring Bean Lifecycle" /&gt;&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;Bean的生命周期主要包含&lt;strong&gt;实例化&lt;/strong&gt;、&lt;strong&gt;属性注入&lt;/strong&gt;、&lt;strong&gt;初始化&lt;/strong&gt;、&lt;strong&gt;使用&lt;/strong&gt;和&lt;strong&gt;销毁&lt;/strong&gt;几个阶段。&lt;/p&gt;
 &lt;h2 id=&#34;bean的生命周期&#34;&gt;Bean的生命周期&lt;/h2&gt;
 &lt;h4 id=&#34;简略描述&#34;&gt;简略描述&lt;/h4&gt;
@@ -31,7 +31,7 @@
 &lt;li&gt;如果bean使用了&lt;code&gt;destroy-method&lt;/code&gt;声明销毁方法，该方法也会被调用。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;完整的生命周期&#34;&gt;完整的生命周期&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Vcancel/uPicRepo@main/uPic/Bean%e7%9a%84%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/Ocancel/uPicRepo@main/uPic/Bean%e7%9a%84%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f-1686126016938.png&#34;
 	
 	
 	
