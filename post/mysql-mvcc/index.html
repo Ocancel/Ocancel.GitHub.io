@@ -15,7 +15,7 @@ DB_TRX_ID：6byte， 最后修改（插入/更新）的事务ID DB_ROLL_PTR：7b
 
 <link rel='canonical' href='https://Ocancel.GitHub.io/post/mysql-mvcc/'>
 
-<link rel="stylesheet" href="/scss/style.min.58f041a1b14eadc1f4e508d1cbecdeb3d64a9778005b6355f10335c268914fd9.css"><meta property='og:title' content='MySQL MVCC'>
+<link rel="stylesheet" href="/scss/style.min.aedda3ef81baf2665d08a0b20b9fe70dde1aae2fc657d83d9edb3a11559944d4.css"><meta property='og:title' content='MySQL MVCC'>
 <meta property='og:description' content='简介 MVCC全称Multi-Version Concurrency Control，即多版本并发控制。MVCC是一种并发控制的方法，一般在数据库管理系统中，实现对数据库的并发访问，在编程语言中实现事务内存。
 多版本并发控制：指的是一种高并发技术。最早的数据库系统，只有读读之间可以并发，读写，写读，写写都要阻塞。引入多版本之后，只有写写之间相互阻塞，其他三种操作都可以并行，这样大幅度提高了InnoDB的并发度。在内部实现中，InnoDB是基于undo log实现的，通过undo log可以找回数据的历史版本。找回的数据历史版本可以提供给用户读（按照隔离级别的定义，有些读请求只能看到比较老的数据版本），也可以在回滚的时候覆盖数据页上的数据。在InnoDB内部中，会记录一个全局的活跃读写事务数组，其主要用来判断事务的可见性。
 MVCC是一种多版本并发控制机制。
@@ -260,22 +260,26 @@ DB_TRX_ID：6byte， 最后修改（插入/更新）的事务ID DB_ROLL_PTR：7b
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#简介">简介</a></li>
-    <li><a href="#前置知识">前置知识</a>
+    <li>
       <ol>
-        <li>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#前置知识">前置知识</a>
           <ol>
-            <li><a href="#innodb的当前读和快照读">InnoDB的当前读和快照读</a></li>
-            <li><a href="#数据库的并发场景">数据库的并发场景</a></li>
+            <li>
+              <ol>
+                <li><a href="#innodb的当前读和快照读">InnoDB的当前读和快照读</a></li>
+                <li><a href="#数据库的并发场景">数据库的并发场景</a></li>
+              </ol>
+            </li>
           </ol>
         </li>
-      </ol>
-    </li>
-    <li><a href="#实现原理">实现原理</a>
-      <ol>
-        <li><a href="#隐式字段">隐式字段</a></li>
-        <li><a href="#undo日志">undo日志</a></li>
-        <li><a href="#read-view">Read View</a></li>
+        <li><a href="#实现原理">实现原理</a>
+          <ol>
+            <li><a href="#隐式字段">隐式字段</a></li>
+            <li><a href="#undo日志">undo日志</a></li>
+            <li><a href="#read-view">Read View</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>

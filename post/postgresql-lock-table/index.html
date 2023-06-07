@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://Ocancel.GitHub.io/post/postgresql-lock-table/'>
 
-<link rel="stylesheet" href="/scss/style.min.58f041a1b14eadc1f4e508d1cbecdeb3d64a9778005b6355f10335c268914fd9.css"><meta property='og:title' content='PostgreSQL 锁表解决方案'>
+<link rel="stylesheet" href="/scss/style.min.aedda3ef81baf2665d08a0b20b9fe70dde1aae2fc657d83d9edb3a11559944d4.css"><meta property='og:title' content='PostgreSQL 锁表解决方案'>
 <meta property='og:description' content='根据表名查询pid列表 1 2 3 4 5 select locks.pid from pg_locks locks inner join pg_class class on locks.relation = class.oid where class.relname = &amp;#39;table_name&amp;#39;; 使用终止函数终止pid 1 select pg_terminate_backend(pid); '>
 <meta property='og:url' content='https://Ocancel.GitHub.io/post/postgresql-lock-table/'>
 <meta property='og:site_name' content='Ocancel Site'>
@@ -233,8 +233,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#根据表名查询pid列表">根据表名查询<code>pid</code>列表</a></li>
-    <li><a href="#使用终止函数终止pid">使用终止函数终止<code>pid</code></a></li>
+    <li>
+      <ol>
+        <li><a href="#根据表名查询pid列表">根据表名查询<code>pid</code>列表</a></li>
+        <li><a href="#使用终止函数终止pid">使用终止函数终止<code>pid</code></a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>

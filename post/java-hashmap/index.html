@@ -8,7 +8,7 @@ HashMap类内部维护了一个哈希桶数组，它是一个Node的数组，采
 
 <link rel='canonical' href='https://Ocancel.GitHub.io/post/java-hashmap/'>
 
-<link rel="stylesheet" href="/scss/style.min.58f041a1b14eadc1f4e508d1cbecdeb3d64a9778005b6355f10335c268914fd9.css"><meta property='og:title' content='Java HashMap'>
+<link rel="stylesheet" href="/scss/style.min.aedda3ef81baf2665d08a0b20b9fe70dde1aae2fc657d83d9edb3a11559944d4.css"><meta property='og:title' content='Java HashMap'>
 <meta property='og:description' content='简介 HashMap根据键的hashCode值存储数据，大多数情况下可以直接定位到它的值，因而具有很快的访问速度，但遍历顺序却是不确定的。 HashMap最多只允许一条记录的键为null，允许多条记录的值为null。HashMap非线程安全，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致。如果需要满足线程安全，可以用 Collections的synchronizedMap方法使HashMap具有线程安全的能力，或者使用ConcurrentHashMap。
 结构 JDK1.8以上的HashMap采用的是数组&#43;链表&#43;红黑树结构实现的。
 HashMap类内部维护了一个哈希桶数组，它是一个Node的数组，采用静态内部类Node来实现 1 2 3 4 5 6 7 8 9 10 11 12 13 static class Node&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; { final int hash; //用来定位数组索引位置 final K key; V value; Node&amp;lt;K,V&amp;gt; next; //链表的下一个node Node(int hash, K key, V value, Node&amp;lt;K,V&amp;gt; next) { ... } public final K getKey(){ ... } public final V getValue() { ... } public final String toString() { ... } public final int hashCode() { .'>
@@ -240,20 +240,24 @@ HashMap类内部维护了一个哈希桶数组，它是一个Node的数组，采
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#简介">简介</a></li>
-    <li><a href="#结构">结构</a></li>
-    <li><a href="#实现">实现</a>
+    <li>
       <ol>
-        <li>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#结构">结构</a></li>
+        <li><a href="#实现">实现</a>
           <ol>
-            <li><a href="#获取索引">获取索引</a></li>
-            <li><a href="#put方法">put方法</a></li>
-            <li><a href="#扩容机制">扩容机制</a></li>
+            <li>
+              <ol>
+                <li><a href="#获取索引">获取索引</a></li>
+                <li><a href="#put方法">put方法</a></li>
+                <li><a href="#扩容机制">扩容机制</a></li>
+              </ol>
+            </li>
           </ol>
         </li>
+        <li><a href="#线程安全性">线程安全性</a></li>
       </ol>
     </li>
-    <li><a href="#线程安全性">线程安全性</a></li>
   </ol>
 </nav>
         </div>
