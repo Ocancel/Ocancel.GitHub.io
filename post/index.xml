@@ -845,7 +845,7 @@
         <pubDate>Thu, 20 Aug 2020 10:28:53 +0800</pubDate>
         
         <guid>https://Ocancel.GitHub.io/post/linux-chmod/</guid>
-        <description>&lt;h1 id=&#34;权限说明&#34;&gt;权限说明&lt;/h1&gt;
+        <description>&lt;h2 id=&#34;权限说明&#34;&gt;权限说明&lt;/h2&gt;
 &lt;h3 id=&#34;文件目录-的权限包括&#34;&gt;&lt;strong&gt;文件／目录&lt;/strong&gt; 的权限包括：&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -914,8 +914,8 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h1 id=&#34;修改权限&#34;&gt;修改权限&lt;/h1&gt;
-&lt;h2 id=&#34;方法一chmod-用户操作权限-文件&#34;&gt;方法一：&lt;code&gt;chmod 用户+操作+权限 文件&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;修改权限&#34;&gt;修改权限&lt;/h2&gt;
+&lt;h3 id=&#34;方法一chmod-用户操作权限-文件&#34;&gt;方法一：&lt;code&gt;chmod 用户+操作+权限 文件&lt;/code&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;用户部分&#34;&gt;用户部分：&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -967,7 +967,7 @@
 &lt;p&gt;若不指定，表示操作对象为当前目录下的所有文件&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;注&#34;&gt;注：&lt;/h3&gt;
+&lt;h4 id=&#34;注&#34;&gt;注：&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;可以同时使用多种操作符添加和取消权限&lt;/p&gt;
@@ -976,7 +976,7 @@
 &lt;p&gt;可以使用 &amp;ldquo;,&amp;rdquo; 符号同时对不同用户范围修改权限&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;例&#34;&gt;例：&lt;/h3&gt;
+&lt;h4 id=&#34;例&#34;&gt;例：&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;指定文件 &amp;ldquo;a&amp;rdquo; 的初始权限为：&lt;code&gt;-rw-rw-r-x&lt;/code&gt;&lt;/p&gt;
@@ -985,7 +985,7 @@
 &lt;p&gt;将权限改为：&lt;code&gt;rwxr-xrw-&lt;/code&gt; 的命令为&lt;code&gt;chmod ug+x,g-w,o+w-x a&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;方法二chmod-xxx-文件-x为数字&#34;&gt;方法二：&lt;code&gt;chmod xxx 文件&lt;/code&gt; [x为数字]&lt;/h2&gt;
+&lt;h3 id=&#34;方法二chmod-xxx-文件-x为数字&#34;&gt;方法二：&lt;code&gt;chmod xxx 文件&lt;/code&gt; [x为数字]&lt;/h3&gt;
 &lt;h4 id=&#34;数字和权限对应关系&#34;&gt;数字和权限对应关系：&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;每位数字代表对应用户类型所持有权限的代数总和&lt;/li&gt;
@@ -994,7 +994,7 @@
 &lt;ul&gt;
 &lt;li&gt;三个数字从前到后分别表示 u、g、o 三种用户类型的访问权限&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;补充&#34;&gt;补充：&lt;/h3&gt;
+&lt;h4 id=&#34;补充&#34;&gt;补充：&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;递归修改目录文件及其子目录中的文件权限类型，可以使用 &lt;code&gt;-R&lt;/code&gt; 选项&lt;/li&gt;
 &lt;/ul&gt;
