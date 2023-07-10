@@ -8,7 +8,7 @@ BeanPostProcessor.postProcessBeforeInitialization()：将此BeanPostProcessor应
 
 <link rel='canonical' href='https://Ocancel.GitHub.io/post/spring-bean-lifecycle/'>
 
-<link rel="stylesheet" href="/scss/style.min.ffd39ce918488e3ac6b35b11907869a4ced6425ea91bc00cda4667214e11f73d.css"><meta property='og:title' content='Spring Bean Lifecycle'>
+<link rel="stylesheet" href="/scss/style.min.c590c03fdd9605ae31954201e1ddfc5e3cc0301a8fb03ea36daa38e2fe5e1c97.css"><meta property='og:title' content='Spring Bean Lifecycle'>
 <meta property='og:description' content='简介 Bean的生命周期主要包含实例化、属性注入、初始化、使用和销毁几个阶段。
 Bean的生命周期 简略描述 Spring启动，查找并加载需要被Spring管理的bean，进行Bean的实例化。 Bean实例化后对将Bean的引入和值注入到Bean的属性中。 如果Bean实现了BeanNameAware接口，Spring将Bean的Id传递给setBeanName()方法。 如果Bean实现了BeanFactoryAware接口，Spring将调用setBeanFactory()方法，将BeanFactory容器实例传入。 如果Bean实现了ApplicationContextAware接口的话，Spring将调用Bean的setApplicationContext()方法，将Bean所在应用上下文引用传入。 如果Bean实现了BeanPostProcessor接口，Spring就将调用他们的postProcessBeforeInitialization()方法。 如果Bean实现了InitializingBean接口，Spring将调用他们的afterPropertiesSet()方法。 如果Bean使用init-method声明了初始化方法，该方法也会被调用。 如果Bean实现了BeanPostProcessor接口，Spring就将调用他们的postProcessAfterInitialization()方法。 Bean已经准备就绪，可以被应用程序使用了。Bean将一直驻留在应用上下文中，直到应用上下文被销毁。 如果bean实现了DisposableBean接口，Spring将调用它的destroy()接口方法。 如果bean使用了destroy-method声明销毁方法，该方法也会被调用。 完整的生命周期 初始化 BeanNameAware.setBeanName()：在创建此Bean的Bean工厂中设置Bean的名称，在普通属性设置之后调用，在InitializinngBean.afterPropertiesSet()方法之前调用。 BeanClassLoaderAware.setBeanClassLoader()：在普通属性设置之后，InitializingBean.afterPropertiesSet()之前调用。 BeanFactoryAware.setBeanFactory()：回调提供了自己的Bean实例工厂，在普通属性设置之后，在InitializingBean.afterPropertiesSet()或者自定义初始化方法之前调用。 EnvironmentAware.setEnvironment()：设置environment在组件使用时调用。 EmbeddedValueResolverAware.setEmbeddedValueResolver()：设置StringValueResolver 用来解决嵌入式的值域问题。 ResourceLoaderAware.setResourceLoader()：在普通bean对象之后调用，在afterPropertiesSet或者自定义的init-method之前调用，在ApplicationContextAware之前调用。 ApplicationEventPublisherAware.setApplicationEventPublisher()：在普通Bean属性之后调用，在初始化调用afterPropertiesSet或者自定义初始化方法之前调用。在ApplicationContextAware之前调用。 MessageSourceAware.setMessageSource()：在普通bean属性之后调用，在初始化调用afterPropertiesSet或者自定义初始化方法之前调用，在ApplicationContextAware之前调用。 ApplicationContextAware.setApplicationContext()：在普通Bean对象生成之后调用，在InitializingBean.afterPropertiesSet之前调用或者用户自定义初始化方法之前。在ResourceLoaderAware.setResourceLoader，ApplicationEventPublisherAware.setApplicationEventPublisher，MessageSourceAware之后调用。 ServletContextAware.setServletContext()：运行时设置ServletContext，在普通Bean初始化后调用，在InitializingBean.afterPropertiesSet之前调用，在 ApplicationContextAware 之后调用。 注：是在WebApplicationContext 运行时
 BeanPostProcessor.postProcessBeforeInitialization()：将此BeanPostProcessor应用于给定的新Bean实例，在任何Bean初始化回调方法（像是InitializingBean.afterPropertiesSet或者自定义的初始化方法）之前调用。这个Bean将要准备填充属性的值。返回的Bean示例可能被普通对象包装，默认实现返回是一个Bean。 BeanPostProcessor.postProcessAfterInitialization()： 将此BeanPostProcessor应用于给定的新Bean实例，在任何Bean初始化回调方法（像是InitializingBean.afterPropertiesSet或者自定义的初始化方法）之后调用。这个Bean将要准备填充属性的值。返回的Bean示例可能被普通对象包装。 InitializingBean.afterPropertiesSet()：被BeanFactory在设置所有Bean属性之后调用（并且满足BeanFactory和ApplicationContextAware）。 销毁 DestructionAwareBeanPostProcessor.postProcessBeforeDestruction()：在销毁之前将此BeanPostProcessor应用于给定的Bean实例。能够调用自定义回调，像是DisposableBean的销毁和自定义销毁方法，这个回调仅仅适用于工厂中的单例Bean（包括内部Bean） 实现了自定义的destory()方法。 '>
@@ -261,10 +261,11 @@ BeanPostProcessor.postProcessBeforeInitialization()：将此BeanPostProcessor应
     <li><a href="#简介">简介</a></li>
     <li><a href="#bean的生命周期">Bean的生命周期</a>
       <ol>
-        <li>
+        <li><a href="#简略描述">简略描述</a></li>
+        <li><a href="#完整的生命周期">完整的生命周期</a>
           <ol>
-            <li><a href="#简略描述">简略描述</a></li>
-            <li><a href="#完整的生命周期">完整的生命周期</a></li>
+            <li><a href="#初始化">初始化</a></li>
+            <li><a href="#销毁">销毁</a></li>
           </ol>
         </li>
       </ol>
@@ -344,7 +345,7 @@ BeanPostProcessor.postProcessBeforeInitialization()：将此BeanPostProcessor应
     <h2 id="简介">简介</h2>
 <p>Bean的生命周期主要包含<strong>实例化</strong>、<strong>属性注入</strong>、<strong>初始化</strong>、<strong>使用</strong>和<strong>销毁</strong>几个阶段。</p>
 <h2 id="bean的生命周期">Bean的生命周期</h2>
-<h4 id="简略描述">简略描述</h4>
+<h3 id="简略描述">简略描述</h3>
 <ol>
 <li>Spring启动，查找并加载需要被Spring管理的bean，进行Bean的实例化。</li>
 <li>Bean实例化后对将Bean的引入和值注入到Bean的属性中。</li>
@@ -359,7 +360,7 @@ BeanPostProcessor.postProcessBeforeInitialization()：将此BeanPostProcessor应
 <li>如果bean实现了<code>DisposableBean</code>接口，Spring将调用它的<code>destroy()</code>接口方法。</li>
 <li>如果bean使用了<code>destroy-method</code>声明销毁方法，该方法也会被调用。</li>
 </ol>
-<h4 id="完整的生命周期">完整的生命周期</h4>
+<h3 id="完整的生命周期">完整的生命周期</h3>
 <p><img src="https://cdn.jsdelivr.net/gh/Ocancel/uPicRepo@main/uPic/Bean%e7%9a%84%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f-1686126016938.png"
 	
 	
@@ -370,7 +371,7 @@ BeanPostProcessor.postProcessBeforeInitialization()：将此BeanPostProcessor应
 	
 	
 ></p>
-<h6 id="初始化">初始化</h6>
+<h4 id="初始化">初始化</h4>
 <ul>
 <li><code>BeanNameAware.setBeanName()</code>：在创建此Bean的Bean工厂中设置Bean的名称，在普通属性设置之后调用，在<code>InitializinngBean.afterPropertiesSet()</code>方法之前调用。</li>
 <li><code>BeanClassLoaderAware.setBeanClassLoader()</code>：在普通属性设置之后，<code>InitializingBean.afterPropertiesSet()</code>之前调用。</li>
@@ -391,7 +392,7 @@ BeanPostProcessor.postProcessBeforeInitialization()：将此BeanPostProcessor应
 <li><code>BeanPostProcessor.postProcessAfterInitialization()</code>： 将此<code>BeanPostProcessor</code>应用于给定的新Bean实例，在任何Bean初始化回调方法（像是<code>InitializingBean.afterPropertiesSet</code>或者自定义的初始化方法）之后调用。这个Bean将要准备填充属性的值。返回的Bean示例可能被普通对象包装。</li>
 <li><code>InitializingBean.afterPropertiesSet()</code>：被<code>BeanFactory</code>在设置所有Bean属性之后调用（并且满足<code>BeanFactory</code>和<code>ApplicationContextAware</code>）。</li>
 </ul>
-<h6 id="销毁">销毁</h6>
+<h4 id="销毁">销毁</h4>
 <ul>
 <li><code>DestructionAwareBeanPostProcessor.postProcessBeforeDestruction()</code>：在销毁之前将此<code>BeanPostProcessor</code>应用于给定的Bean实例。能够调用自定义回调，像是<code>DisposableBean</code>的销毁和自定义销毁方法，这个回调仅仅适用于工厂中的单例Bean（包括内部Bean）</li>
 <li>实现了自定义的<code>destory()</code>方法。</li>
@@ -432,10 +433,12 @@ BeanPostProcessor.postProcessBeforeInitialization()：将此BeanPostProcessor应
 
 <aside class="related-content--wrapper">
     <section class="widget relation">
-        <div class="widget-icon">
-            <svg t="1685582097401" class="icon" viewBox="0 0 1544 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="34920" width="200" height="200"><path d="M 607.233 892.701 a 134.815 134.815 0 0 1 -190.466 0 L 131.299 607.233 a 134.815 134.815 0 0 1 0 -190.466 L 416.767 131.299 a 134.815 134.815 0 0 1 190.466 0 l 285.469 285.469 a 134.815 134.815 0 0 1 0 190.466 a 45.9729 45.9729 0 0 0 65.0286 65.0286 a 226.922 226.922 0 0 0 0 -320.523 L 672.261 66.2699 a 226.922 226.922 0 0 0 -320.523 0 L 66.2699 351.693 a 226.922 226.922 0 0 0 0 320.523 L 351.693 957.73 a 226.922 226.922 0 0 0 320.523 0 a 45.9729 45.9729 0 0 0 -65.0286 -65.0286 Z" fill="currentColor" p-id="34921"></path><path d="M 1478.03 351.693 L 1192.56 66.2699 a 226.922 226.922 0 0 0 -320.523 0 a 45.9729 45.9729 0 1 0 65.0286 65.0286 a 134.815 134.815 0 0 1 190.466 0 l 285.492 285.469 a 134.861 134.861 0 0 1 0 190.466 l -285.492 285.469 a 134.815 134.815 0 0 1 -190.466 0 L 651.597 607.233 a 134.815 134.815 0 0 1 0 -190.466 A 45.9729 45.9729 0 1 0 586.568 351.693 a 226.922 226.922 0 0 0 0 320.523 l 285.469 285.515 a 226.922 226.922 0 0 0 320.523 0 L 1478.03 672.261 A 226.922 226.922 0 0 0 1478.03 351.693 Z" fill="currentColor" p-id="34922"></path></svg>
+        <div class="weiget-name">
+            <div class="widget-icon">
+                <svg t="1685582097401" class="icon" viewBox="0 0 1544 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="34920" width="200" height="200"><path d="M 607.233 892.701 a 134.815 134.815 0 0 1 -190.466 0 L 131.299 607.233 a 134.815 134.815 0 0 1 0 -190.466 L 416.767 131.299 a 134.815 134.815 0 0 1 190.466 0 l 285.469 285.469 a 134.815 134.815 0 0 1 0 190.466 a 45.9729 45.9729 0 0 0 65.0286 65.0286 a 226.922 226.922 0 0 0 0 -320.523 L 672.261 66.2699 a 226.922 226.922 0 0 0 -320.523 0 L 66.2699 351.693 a 226.922 226.922 0 0 0 0 320.523 L 351.693 957.73 a 226.922 226.922 0 0 0 320.523 0 a 45.9729 45.9729 0 0 0 -65.0286 -65.0286 Z" fill="currentColor" p-id="34921"></path><path d="M 1478.03 351.693 L 1192.56 66.2699 a 226.922 226.922 0 0 0 -320.523 0 a 45.9729 45.9729 0 1 0 65.0286 65.0286 a 134.815 134.815 0 0 1 190.466 0 l 285.492 285.469 a 134.861 134.861 0 0 1 0 190.466 l -285.492 285.469 a 134.815 134.815 0 0 1 -190.466 0 L 651.597 607.233 a 134.815 134.815 0 0 1 0 -190.466 A 45.9729 45.9729 0 1 0 586.568 351.693 a 226.922 226.922 0 0 0 0 320.523 l 285.469 285.515 a 226.922 226.922 0 0 0 320.523 0 L 1478.03 672.261 A 226.922 226.922 0 0 0 1478.03 351.693 Z" fill="currentColor" p-id="34922"></path></svg>
+            </div>
+            <h2 class="widget-title">相关文章</h2>
         </div>
-        <h2 class="section-title">相关文章</h2>
         <div class="related-content">
             <div class="flex article-list--tile">
                 
