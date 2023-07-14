@@ -8,7 +8,7 @@ HashMap类内部维护了一个哈希桶数组，它是一个Node的数组，采
 
 <link rel='canonical' href='https://Ocancel.GitHub.io/post/java-hashmap/'>
 
-<link rel="stylesheet" href="/scss/style.min.c590c03fdd9605ae31954201e1ddfc5e3cc0301a8fb03ea36daa38e2fe5e1c97.css"><meta property='og:title' content='Java HashMap'>
+<link rel="stylesheet" href="/scss/style.min.4cf93919681c5a48d8cc723c22b2c1ca724cfb7f972d0414b8bf9b696986e11e.css"><meta property='og:title' content='Java HashMap'>
 <meta property='og:description' content='简介 HashMap根据键的hashCode值存储数据，大多数情况下可以直接定位到它的值，因而具有很快的访问速度，但遍历顺序却是不确定的。 HashMap最多只允许一条记录的键为null，允许多条记录的值为null。HashMap非线程安全，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致。如果需要满足线程安全，可以用 Collections的synchronizedMap方法使HashMap具有线程安全的能力，或者使用ConcurrentHashMap。
 结构 JDK1.8以上的HashMap采用的是数组&#43;链表&#43;红黑树结构实现的。
 HashMap类内部维护了一个哈希桶数组，它是一个Node的数组，采用静态内部类Node来实现 0 1 2 3 4 5 6 7 8 9 10 11 12 static class Node&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; { final int hash; //用来定位数组索引位置 final K key; V value; Node&amp;lt;K,V&amp;gt; next; //链表的下一个node Node(int hash, K key, V value, Node&amp;lt;K,V&amp;gt; next) { ... } public final K getKey(){ ... } public final V getValue() { ... } public final String toString() { ... } public final int hashCode() { .'>
@@ -58,22 +58,25 @@ HashMap类内部维护了一个哈希桶数组，它是一个Node的数组，采
     <header>
         
             
-            <figure class="site-avatar">
-                <a href="/">
-                
-                    <img src="https://cdn.jsdelivr.net/gh/Ocancel/uPicRepo@main/uPic/avator-1685772455096.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
-                
-                </a>
-                
-                    <span class="emoji">🧐</span>
-                
-            </figure>
-            
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">Ocancel Site</a></h1>
-            <h2 class="site-description">Whatever can happen will happen.</h2>
+            <div class="glitch-wrapper site-name">
+                <div class="glitch" data-text="Ocancel Site">
+                  <a href="/">Ocancel Site</a>
+                </div>
+              </div>
+            <div class="brief-div site-description">
+                <p id="brief">Just do IT.\n
+Keep it simple.\n
+Work Hard.\n
+Good idea.\n
+Never mind.\n
+Right Here.\n
+Take a chance.\n
+This&#39;s it.
+</p>
+            </div>
         </div>
     </header>
     <ol class="social-menu">
@@ -861,7 +864,7 @@ HashMap类内部维护了一个哈希桶数组，它是一个Node的数组，采
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.js" defer></script><script type="text/javascript" src="/ts/custom.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');

@@ -8,7 +8,7 @@
 
 <link rel='canonical' href='https://Ocancel.GitHub.io/post/linux-tail/'>
 
-<link rel="stylesheet" href="/scss/style.min.c590c03fdd9605ae31954201e1ddfc5e3cc0301a8fb03ea36daa38e2fe5e1c97.css"><meta property='og:title' content='Linux tail'>
+<link rel="stylesheet" href="/scss/style.min.4cf93919681c5a48d8cc723c22b2c1ca724cfb7f972d0414b8bf9b696986e11e.css"><meta property='og:title' content='Linux tail'>
 <meta property='og:description' content='简介 显示文件的最后一部分
 语法 0 tail [OPTION] FILE... 选项 0 1 2 3 4 5 6 7 8 9 10 -c, --bytes=NUM # 输出文件尾部的NUM（NUM为整数）个字节内容。 -f, --follow[={name|descript}] # 显示文件最新追加的内容。“name”表示以文件名的方式监视文件的变化。 -F # 与 “--follow=name --retry” 功能相同。 -n, --line=NUM # 输出文件的尾部NUM（NUM位数字）行内容。 --pid=&amp;lt;进程号&amp;gt; # 与“-f”选项连用，当指定的进程号的进程终止后，自动退出tail命令。 -q, --quiet, --silent # 当有多个文件参数时，不输出各个文件名。 --retry # 即是在tail命令启动时，文件不可访问或者文件稍后变得不可访问，都始终尝试打开文件。使用此选项时需要与选项“--follow=name”连用。 -s, --sleep-interal=&amp;lt;秒数&amp;gt; # 与“-f”选项连用，指定监视文件变化时间隔的秒数。 -v, --verbose # 当有多个文件参数时，总是输出各个文件名。 --help # 显示指令的帮助信息。 --version # 显示指令的版本信息。 参数 文件列表：指定要显示尾部内容的文件列表。
 补充说明 默认在屏幕上显示指定文件的末尾10行。 处理多个文件时会在各个文件之前附加含有文件名的行。 如果没有指定文件或者文件名为-，则读取标准输入。 如果表示字节或行数的NUM值之前有一个&#43;号，则从文件开头的第NUM项开始显示，而不是显示文件的最后NUM项。 NUM值后面可以写单位： b：512 kB：1000 k：1024 MB：10002 M：10242 GB：10003 G：10243 T、P、E、Z、Y等以此类推。 '>
@@ -57,22 +57,25 @@
     <header>
         
             
-            <figure class="site-avatar">
-                <a href="/">
-                
-                    <img src="https://cdn.jsdelivr.net/gh/Ocancel/uPicRepo@main/uPic/avator-1685772455096.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
-                
-                </a>
-                
-                    <span class="emoji">🧐</span>
-                
-            </figure>
-            
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/">Ocancel Site</a></h1>
-            <h2 class="site-description">Whatever can happen will happen.</h2>
+            <div class="glitch-wrapper site-name">
+                <div class="glitch" data-text="Ocancel Site">
+                  <a href="/">Ocancel Site</a>
+                </div>
+              </div>
+            <div class="brief-div site-description">
+                <p id="brief">Just do IT.\n
+Keep it simple.\n
+Work Hard.\n
+Good idea.\n
+Never mind.\n
+Right Here.\n
+Take a chance.\n
+This&#39;s it.
+</p>
+            </div>
         </div>
     </header>
     <ol class="social-menu">
@@ -551,7 +554,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/ts/main.js" defer></script><script type="text/javascript" src="/ts/custom.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
