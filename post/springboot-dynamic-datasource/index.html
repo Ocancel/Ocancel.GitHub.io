@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://Ocancel.GitHub.io/post/springboot-dynamic-datasource/'>
 
-<link rel="stylesheet" href="/scss/style.min.4cf93919681c5a48d8cc723c22b2c1ca724cfb7f972d0414b8bf9b696986e11e.css"><meta property='og:title' content='Springboot Dynamic Datasource'>
+<link rel="stylesheet" href="/scss/style.min.83e356f67391a70083492f25d55909d32dd647cd3d537476927a4a590c02b3ed.css"><meta property='og:title' content='Springboot Dynamic Datasource'>
 <meta property='og:description' content='Dynamic-Datasource 在pom.xml中导入依赖 0 1 2 3 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.baomidou&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;dynamic-datasource-spring-boot-starter&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; 在application.yml中配置动态数据源 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 spring: datasource: dynamic: # 设置默认的数据源或者数据源组,默认值即为main primary: main # 严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源 strict: false datasource: # 默认数据源 main: url: url username: username password: passward driver-class-name: xxx.Dirver # 其他数据源 slave_1: url: url username: username password: passward driver-class-name: xxx.Dirver 在Service方法上使用@DS注解 0 1 2 3 4 5 6 7 8 9 10 11 12 public interface DemoService { void testDynamicFunc(); } @Service public class DemoServiceImpl implements DemoService { @Override @DS(&amp;#34;main&amp;#34;) @Transactional(rollbackFor = Exception.'>
 <meta property='og:url' content='https://Ocancel.GitHub.io/post/springboot-dynamic-datasource/'>
 <meta property='og:site_name' content='Ocancel Site'>
