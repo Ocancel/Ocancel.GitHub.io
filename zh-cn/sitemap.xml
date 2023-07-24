@@ -2,8 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://Ocancel.GitHub.io/categories/database/</loc>
-    <lastmod>2023-05-24T21:16:31+08:00</lastmod>
+    <loc>https://Ocancel.GitHub.io/tags/javascript/</loc>
+    <lastmod>2023-07-24T23:14:32+08:00</lastmod>
+  </url><url>
+    <loc>https://Ocancel.GitHub.io/categories/javascript/</loc>
+    <lastmod>2023-07-24T23:14:32+08:00</lastmod>
+  </url><url>
+    <loc>https://Ocancel.GitHub.io/post/javascript-basic-i/</loc>
+    <lastmod>2023-07-24T23:14:32+08:00</lastmod>
   </url><url>
     <loc>https://Ocancel.GitHub.io/</loc>
     <lastmod>2023-09-07T11:59:23+08:00</lastmod>
@@ -17,12 +23,6 @@
                 hreflang="zh-cn"
                 href="https://Ocancel.GitHub.io/"
                 />
-  </url><url>
-    <loc>https://Ocancel.GitHub.io/tags/postgresql/</loc>
-    <lastmod>2023-05-24T21:16:31+08:00</lastmod>
-  </url><url>
-    <loc>https://Ocancel.GitHub.io/post/postgresql-lock-table/</loc>
-    <lastmod>2023-05-24T21:16:31+08:00</lastmod>
   </url><url>
     <loc>https://Ocancel.GitHub.io/post/</loc>
     <lastmod>2023-09-07T11:59:23+08:00</lastmod>
@@ -62,6 +62,15 @@
                 hreflang="zh-cn"
                 href="https://Ocancel.GitHub.io/categories/"
                 />
+  </url><url>
+    <loc>https://Ocancel.GitHub.io/categories/database/</loc>
+    <lastmod>2023-05-24T21:16:31+08:00</lastmod>
+  </url><url>
+    <loc>https://Ocancel.GitHub.io/tags/postgresql/</loc>
+    <lastmod>2023-05-24T21:16:31+08:00</lastmod>
+  </url><url>
+    <loc>https://Ocancel.GitHub.io/post/postgresql-lock-table/</loc>
+    <lastmod>2023-05-24T21:16:31+08:00</lastmod>
   </url><url>
     <loc>https://Ocancel.GitHub.io/categories/spring-framework/</loc>
     <lastmod>2023-09-07T11:59:23+08:00</lastmod>
