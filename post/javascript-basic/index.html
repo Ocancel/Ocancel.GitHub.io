@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='JavaScript 基础笔记I'>
-<title>Javascript Basic I</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='JavaScript 基础知识'>
+<title>Javascript Basic</title>
 
-<link rel='canonical' href='https://Ocancel.GitHub.io/post/javascript-basic-i/'>
+<link rel='canonical' href='https://Ocancel.GitHub.io/post/javascript-basic/'>
 
-<link rel="stylesheet" href="/scss/style.min.83e356f67391a70083492f25d55909d32dd647cd3d537476927a4a590c02b3ed.css"><meta property='og:title' content='Javascript Basic I'>
-<meta property='og:description' content='JavaScript 基础笔记I'>
-<meta property='og:url' content='https://Ocancel.GitHub.io/post/javascript-basic-i/'>
+<link rel="stylesheet" href="/scss/style.min.83e356f67391a70083492f25d55909d32dd647cd3d537476927a4a590c02b3ed.css"><meta property='og:title' content='Javascript Basic'>
+<meta property='og:description' content='JavaScript 基础知识'>
+<meta property='og:url' content='https://Ocancel.GitHub.io/post/javascript-basic/'>
 <meta property='og:site_name' content='Ocancel Site'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='JavaScript' /><meta property='article:published_time' content='2023-07-24T10:39:57&#43;08:00'/><meta property='article:modified_time' content='2023-07-24T23:14:32&#43;08:00'/>
-<meta name="twitter:title" content="Javascript Basic I">
-<meta name="twitter:description" content="JavaScript 基础笔记I">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='JavaScript' /><meta property='article:published_time' content='2023-07-24T10:39:57&#43;08:00'/><meta property='article:modified_time' content='2023-07-25T09:37:32&#43;08:00'/>
+<meta name="twitter:title" content="Javascript Basic">
+<meta name="twitter:description" content="JavaScript 基础知识">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -301,6 +301,31 @@ This&#39;s it.
           </ol>
         </li>
         <li><a href="#对象-1">对象</a></li>
+        <li><a href="#条件判断">条件判断</a>
+          <ol>
+            <li><a href="#多行条件判断">多行条件判断</a></li>
+          </ol>
+        </li>
+        <li><a href="#循环">循环</a>
+          <ol>
+            <li><a href="#for"><code>for</code></a></li>
+            <li><a href="#for--in"><code>for ... in</code></a></li>
+            <li><a href="#while"><code>while</code></a></li>
+            <li><a href="#do--while"><code>do ... while</code></a></li>
+          </ol>
+        </li>
+        <li><a href="#map和set">Map和Set</a>
+          <ol>
+            <li><a href="#map">Map</a></li>
+            <li><a href="#set">Set</a></li>
+          </ol>
+        </li>
+        <li><a href="#iterable">iterable</a>
+          <ol>
+            <li><a href="#for--of"><code>for ... of</code></a></li>
+            <li><a href="#iterableforeach"><code>iterable.forEach()</code></a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -330,12 +355,12 @@ This&#39;s it.
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/post/javascript-basic-i/">Javascript Basic I</a>
+            <a href="/post/javascript-basic/">Javascript Basic</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            JavaScript 基础笔记I
+            JavaScript 基础知识
         </h3>
         
     </div>
@@ -356,7 +381,7 @@ This&#39;s it.
             <div>
                 <svg t="1685552764557" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9514" width="200" height="200"><path d="M506.77 960a369.98 369.98 0 0 1-230.35-79.15c-162.04-130.81-187.36-368.2-56.55-530.24 123.14-152.54 342.63-185.28 504.92-75.3l71.31-53.01c17.06-11.57 40.28-7.12 51.85 9.94 10.58 15.6 7.87 36.63-6.31 49.05l-70.19 54.13c-26.55 19.91-63.05 19.91-89.6 0-136.92-94.76-324.74-60.59-419.5 76.33s-60.59 324.74 76.33 419.5c136.92 94.76 324.74 60.59 419.5-76.33 65.22-94.24 71.37-217.31 15.88-317.58-10.68-17.83-4.89-40.94 12.93-51.62 17.83-10.68 40.94-4.89 51.62 12.93 0.27 0.45 0.53 0.9 0.78 1.36 101.47 179.49 38.22 407.25-141.27 508.72a373.31 373.31 0 0 1-142.46 46.05c-16.16 2.76-32.5 4.5-48.89 5.22z m125.81-858.67c0-20.62-16.71-37.33-37.33-37.33H445.91c-20.62 0-37.33 16.71-37.33 37.33s16.71 37.33 37.33 37.33h149.33c20.63 0.01 37.34-16.71 37.34-37.33z m-85.49 511.84c14.47-14.56 14.47-38.08 0-52.64L414.93 428.37c-15.66-13.41-39.23-11.58-52.64 4.08-11.97 13.98-11.97 34.59 0 48.56l132.16 132.16c14.56 14.48 38.08 14.48 52.64 0z" fill="currentColor" p-id="9515"></path></svg>
                 <time class="article-time--reading">
-                    阅读时长: 6 分钟
+                    阅读时长: 9 分钟
                 </time>
             </div>
         
@@ -474,7 +499,7 @@ This&#39;s it.
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="字符串">字符串</h4>
-<p>字符串是以单引号&rsquo;或双引号&quot;括起来的任意文本，比如<code>'abc'</code>，<code>&quot;xyz&quot;</code>等等。请注意，<code>''</code>或<code>&quot;&quot;</code>本身只是一种表示方式，不是字符串的一部分。</p>
+<p>字符串是以单引号<code>'</code>或双引号<code>&quot;</code>括起来的任意文本，比如<code>'abc'</code>，<code>&quot;xyz&quot;</code>等等，<code>''</code>或<code>&quot;&quot;</code>本身只是一种表示方式，不是字符串的一部分。</p>
 <h4 id="布尔值">布尔值</h4>
 <p>布尔值和布尔代数的表示完全一致，一个布尔值只有<code>true</code>、<code>false</code>两种值。</p>
 <h4 id="逻辑运算符">逻辑运算符</h4>
@@ -558,7 +583,7 @@ This&#39;s it.
 <li><code>===</code>则不会自动转换数据类型，如果数据类型不一致，则返回<code>false</code>，如果一致，再比较</li>
 </ul>
 <ol start="2">
-<li><code>NaN</code>：<code>NaN</code>这个特殊的Number与所有其他值都不相等，包括它自己：</li>
+<li><code>NaN</code>：<code>NaN</code>这个特殊的<code>Number</code>与所有其他值都不相等，包括它自己：</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -583,8 +608,8 @@ This&#39;s it.
 </div>
 </div><h4 id="null和undefined">null和undefined</h4>
 <ul>
-<li><code>null</code>表示一个空的值</li>
-<li><code>undefined</code>表示一个未定义的值</li>
+<li><code>null</code>：表示一个空的值</li>
+<li><code>undefined</code>：表示一个未定义的值</li>
 </ul>
 <h4 id="数组">数组</h4>
 <p>数组是一组按顺序排列的集合，集合的每个值称为元素。JavaScript的数组可以包括任意数据类型：</p>
@@ -645,7 +670,7 @@ This&#39;s it.
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>JavaScript对象的键都是字符串类型，值可以是任意数据类型。</p>
-<p>获取一个对象的属性，可以使用<code>对象变量.属性名</code>的方式：</p>
+<p>获取一个对象的属性，可以使用<code>object.prop</code>的方式：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
@@ -675,7 +700,7 @@ This&#39;s it.
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>      <span class="c1">// t的值是null
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>使用等号<code>=</code>对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但是要注意只能用<code>var</code>申明一次，例如：</p>
+</div><p>使用等号<code>=</code>对变量进行赋值。可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量，但只能用<code>var</code>申明一次，例如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
@@ -689,7 +714,7 @@ This&#39;s it.
 </div><h3 id="字符串-1">字符串</h3>
 <p>JavaScript的字符串就是用<code>''</code>或<code>&quot;&quot;</code>括起来的字符表示。</p>
 <h4 id="多行字符串">多行字符串</h4>
-<p>由于多行字符串用<code>\n</code>写起来比较费事，所以最新的ES6标准新增了一种多行字符串的表示方法，用反引号<code>...</code>表示：</p>
+<p>ES6标准新增了一种多行字符串的表示方法，用反引号表示：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
@@ -716,7 +741,7 @@ This&#39;s it.
 </span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s1">&#39;你好, &#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;, 你今年&#39;</span> <span class="o">+</span> <span class="nx">age</span> <span class="o">+</span> <span class="s1">&#39;岁了!&#39;</span><span class="p">;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>也可以使用ES6新增的一种模板字符串，表示方法和上面的多行字符串一样，但是它会自动替换字符串中的变量：</p>
+</div><p>ES6新增一种模板字符串，它会自动替换字符串中的变量：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
@@ -755,14 +780,12 @@ This&#39;s it.
 </span><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>  <span class="c1">// &#39;H&#39;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">s</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>  <span class="c1">// &#39; &#39;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">s</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span>  <span class="c1">// &#39;W&#39;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">s</span><span class="p">[</span><span class="mi">12</span><span class="p">];</span> <span class="c1">// &#39;!&#39;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">s</span><span class="p">[</span><span class="mi">13</span><span class="p">];</span> <span class="c1">// undefined
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">s</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>  <span class="c1">// &#39; &#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">s</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>  <span class="c1">// &#39;W&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">s</span><span class="p">[</span><span class="mi">12</span><span class="p">];</span> <span class="c1">// undefined
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>特别注意</strong>：字符串是不可变的，如果对字符串的某个索引赋值，不会报错，也没有任何效果：</p>
@@ -1240,7 +1263,376 @@ This&#39;s it.
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">xiaoming</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;toString&#39;</span><span class="p">);</span> <span class="c1">// false
 </span></span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="条件判断">条件判断</h3>
+<p>JavaScript使用<code>if () { ... } else { ... }</code>来进行条件判断，其中<code>else</code>语句是可选的，若语句块只包含一条语句，则可以省略<code>{}</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;adult&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;teenager&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><h4 id="多行条件判断">多行条件判断</h4>
+<p>如果有多个判断条件，则可以使用多个<code>if...else...</code>的组合：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;adult&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">age</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;teenager&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;kid&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>PS：<code>if...else...</code>语句的执行特点是二选一，在多个<code>if...else...</code>语句中，如果某个条件成立，则后续就不再继续判断了。</p>
+</blockquote>
+<h3 id="循环">循环</h3>
+<p>JavaScript的循环有总体分为两种，<code>for</code>循环和<code>while</code>循环。</p>
+<h4 id="for"><code>for</code></h4>
+<p>通过初始条件、结束条件和递增条件来循环执行语句块：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">10000</span><span class="p">;</span> <span class="nx">i</span> <span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">x</span><span class="p">;</span> <span class="c1">// 50005000
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>i=1</code>这是初始条件，将变量<code>i</code>置为<code>1</code>；</li>
+<li><code>i&lt;=10000</code>这是判断条件，满足时就继续循环，不满足就退出循环；</li>
+<li><code>i++</code> 这是每次循环后的递增条件，由于每次循环后变量i都会加<code>1</code>，因此它终将在若干次循环后不满足判断条件<code>i&lt;=10000</code>而退出循环。</li>
+</ul>
+<blockquote>
+<p>PS：<code>for</code>循环的3个条件都是可以省略的，如果没有退出循环的判断条件，就必须使用<code>break</code>语句退出循环，否则就是死循环：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span>     <span class="c1">// 无限循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span> <span class="c1">// 通过break退出循环
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="for--in"><code>for ... in</code></h4>
+<p><code>for ... in</code>循环可以把一个对象的所有属性依次循环出来：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Jack&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">city</span><span class="o">:</span> <span class="s1">&#39;Beijing&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span> <span class="c1">// &#39;name&#39;, &#39;age&#39;, &#39;city&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>Array</code>也是对象，<code>Array</code>索引被视为对象的属性，<code>for ... in</code>循环可以得到<code>Array</code>的索引：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>    <span class="c1">// &#39;0&#39;, &#39;1&#39;, &#39;2&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span> <span class="c1">// &#39;A&#39;, &#39;B&#39;, &#39;C&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>PS：<code>for ... in</code>对<code>Array</code>的循环得到的是<code>String</code>而不是<code>Number</code></p>
+</blockquote>
+<h4 id="while"><code>while</code></h4>
+<p><code>while</code>循环只有一个判断条件，在不满足条件时退出循环：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">x</span><span class="p">;</span> <span class="c1">// 2500
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="do--while"><code>do ... while</code></h4>
+<p><code>do { ... } while()</code>循环只有一个判断条件，在不满足条件时退出循环：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">n</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">n</span><span class="p">;</span> <span class="c1">// 100
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>PS：<code>do { ... } while()</code>循环至少执行一次，<code>for</code>循环和<code>while</code>循环可能一次都不执行</p>
+</blockquote>
+<h3 id="map和set">Map和Set</h3>
+<p>JavaScript在ES6中引入了新的数据结构<code>Map</code>和<code>Set</code></p>
+<h4 id="map">Map</h4>
+<p><code>Map</code>是一组键值对的结构，具有极快的查找速度：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="mi">95</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="mi">75</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Tracy&#39;</span><span class="p">,</span> <span class="mi">85</span><span class="p">]]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;Michael&#39;</span><span class="p">);</span> <span class="c1">// 95
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>Map</code>需要一个二维数组来初始化，也可以初始化一个空<code>Map</code>；<code>Map</code>具有以下方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">();</span> <span class="c1">// 空Map
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">m</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Adam&#39;</span><span class="p">,</span> <span class="mi">67</span><span class="p">);</span> <span class="c1">// 添加
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">m</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s1">&#39;Adam&#39;</span><span class="p">);</span>     <span class="c1">// 是否存在key：true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">m</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;Adam&#39;</span><span class="p">);</span>     <span class="c1">// 67
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">m</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;Adam&#39;</span><span class="p">);</span>  <span class="c1">// 删除key &#39;Adam&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">m</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;Adam&#39;</span><span class="p">);</span>     <span class="c1">// undefined
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>当向同一个<code>Map</code>多次添加同一个<code>key</code>时，新值会覆盖旧值。</p>
+<h4 id="set">Set</h4>
+<p><code>Set</code>是一组<code>key</code>的集合，不存储<code>value</code>且<code>key</code>不能重复。</p>
+<p><code>Set</code>需要一个数组来初始化，也可以初始化一个空<code>Set</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">s1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">();</span>          <span class="c1">// 空Set
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span> <span class="c1">// 含1, 2, 3
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过<code>add(key)</code>方法向<code>Set</code>中添加元素：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="nx">s</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">s</span><span class="p">;</span> <span class="c1">// Set {1, 2, 3, 4}
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">s</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">s</span><span class="p">;</span> <span class="c1">// Set {1, 2, 3, 4}
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过<code>delete(key)</code>方法可以删除<code>Set</code>中的元素：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">s</span><span class="p">;</span> <span class="c1">// Set {1, 2, 3}
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">s</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">s</span><span class="p">;</span> <span class="c1">// Set {1, 2}
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="iterable">iterable</h3>
+<p>为了统一集合类型，ES6引入了<code>iterable</code>类型，<code>Array</code>、<code>Map</code>和<code>Set</code>都属于<code>iterable</code>类型。</p>
+<h4 id="for--of"><code>for ... of</code></h4>
+<p>具有<code>iterable</code>类型的集合可以通过新的<code>for ... of</code>循环来遍历：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 0
+</span><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]]);</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">x</span> <span class="k">of</span> <span class="nx">a</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 遍历Array
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">x</span> <span class="k">of</span> <span class="nx">s</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 遍历Set
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">x</span> <span class="k">of</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 遍历Map
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">+</span> <span class="nx">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>PS：<code>for ... of</code>循环和<code>for ... in</code>循环的区别在于前者只遍历集合的元素，而后者遍历集合的属性。</p>
+</blockquote>
+<h4 id="iterableforeach"><code>iterable.forEach()</code></h4>
+<p><code>forEach()</code>方法是<code>iterable</code>集合的遍历方法，它的入参是一个函数，每次迭代自动回调该函数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// element: 指向当前元素的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// index: 指向当前索引
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// array: 指向Array对象本身
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">element</span> <span class="o">+</span> <span class="s1">&#39;, index = &#39;</span> <span class="o">+</span> <span class="nx">index</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>Set</code>没有索引，因此回调函数的前两个参数都是元素本身：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">s</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">sameElement</span><span class="p">,</span> <span class="nx">set</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>Map</code>的回调函数参数依次为<code>value</code>、<code>key</code>和<code>map</code>本身：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Map</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]]);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">m</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">map</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>JavaScript的函数调用不要求参数必须一致，可以忽略部分参数：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-JavaScript" data-lang="JavaScript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>原文链接：<a class="link" href="https://www.liaoxuefeng.com/wiki/1022910821149312/1023020895584256"  target="_blank" rel="noopener"
+    >JavaScript教程</a></p>
+
 </section>
 
 
@@ -1262,7 +1654,7 @@ This&#39;s it.
     <section class="article-lastmod">
         <svg t="1685582516965" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="58581" width="200" height="200"><path d="M740.23 957.13c-106.95 0-193.97-87.02-193.97-193.97s87.02-193.97 193.97-193.97S934.2 656.2 934.2 763.15s-87.02 193.98-193.97 193.98z m0-324.78c-72.12 0-130.8 58.69-130.8 130.8s58.69 130.8 130.8 130.8 130.8-58.69 130.8-130.8-58.69-130.8-130.8-130.8z" fill="currentColor" p-id="58582"></path><path d="M508.5 936.85H204.41C141.32 936.85 90 885.53 90 822.46V264.35c0-63.07 51.33-114.39 114.41-114.39h590.52c63.07 0 114.39 51.33 114.39 114.39v255.13c0 17.44-14.15 31.59-31.59 31.59-17.44 0-31.59-14.15-31.59-31.59V264.35c0-28.25-22.97-51.22-51.22-51.22H204.41c-28.25 0-51.24 22.97-51.24 51.22v558.11c0 28.25 22.99 51.22 51.24 51.22H508.5c17.44 0 31.59 14.15 31.59 31.59s-14.15 31.58-31.59 31.58z" fill="currentColor" p-id="58583"></path><path d="M318.5 270.72c-17.44 0-31.59-14.15-31.59-31.59V98.71c0-17.44 14.15-31.59 31.59-31.59s31.59 14.15 31.59 31.59v140.43c-0.01 17.44-14.16 31.58-31.59 31.58zM680.84 270.72c-17.44 0-31.59-14.15-31.59-31.59V98.71c0-17.44 14.15-31.59 31.59-31.59 17.44 0 31.59 14.15 31.59 31.59v140.43c0 17.44-14.15 31.58-31.59 31.58zM777.14 434H222.18c-17.44 0-31.59-14.15-31.59-31.59s14.15-31.59 31.59-31.59h554.96c17.44 0 31.59 14.15 31.59 31.59S794.58 434 777.14 434z" fill="currentColor" p-id="58584"></path><path d="M785.59 796.92h-42.4c-23.61 0-42.81-19.21-42.81-42.83V696.4c0-17.44 14.15-31.59 31.59-31.59 17.44 0 31.59 14.15 31.59 31.59v37.34h22.04c17.44 0 31.59 14.15 31.59 31.59s-14.16 31.59-31.6 31.59z" fill="currentColor" p-id="58585"></path></svg>
         <span>
-            最后更新于 Jul 24 2023 23:14 CST
+            最后更新于 Jul 25 2023 09:37 CST
         </span>
     </section>
     <section class="article-sponsor">
