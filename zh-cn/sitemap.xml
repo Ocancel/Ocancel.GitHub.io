@@ -153,6 +153,18 @@
                 href="https://Ocancel.GitHub.io/page/"
                 />
   </url><url>
+    <loc>https://Ocancel.GitHub.io/categories/rust/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://Ocancel.GitHub.io/en/categories/rust/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://Ocancel.GitHub.io/categories/rust/"
+                />
+  </url><url>
     <loc>https://Ocancel.GitHub.io/about/</loc>
     <xhtml:link
                 rel="alternate"
