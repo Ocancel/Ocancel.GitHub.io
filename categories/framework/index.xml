@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Spring Framework on Ocancel Site</title>
-        <link>https://Ocancel.GitHub.io/categories/spring-framework/</link>
-        <description>Recent content in Spring Framework on Ocancel Site</description>
+        <title>Framework  on Ocancel Site</title>
+        <link>https://Ocancel.GitHub.io/categories/framework/</link>
+        <description>Recent content in Framework  on Ocancel Site</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Wed, 05 Apr 2023 19:19:15 +0800</lastBuildDate><atom:link href="https://Ocancel.GitHub.io/categories/spring-framework/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 05 Apr 2023 19:19:15 +0800</lastBuildDate><atom:link href="https://Ocancel.GitHub.io/categories/framework/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Springboot Dynamic Datasource</title>
         <link>https://Ocancel.GitHub.io/post/springboot-dynamic-datasource/</link>
         <pubDate>Wed, 05 Apr 2023 19:19:15 +0800</pubDate>

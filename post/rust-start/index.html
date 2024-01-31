@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='A brief guide to setup KaTeX'>
-<title>Math Typesetting</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Cargo Cargo是Rust的构建系统和包管理器。
+常用的cargo命令 查看cargo版本号 0 cargo --version 使用cargo创建名为demo的项目 0 cargo new demo 使用cargo构建项目 0 cargo build 使用cargo构建并运行项目 0 cargo run 使用cargo构建项目并检查错误，不生成二进制文件 0 cargo check 使用cargo发布构建，优化并编译项目，在target/release生成可执行文件 0 cargo build --release Cargo.toml 0 1 2 3 4 5 6 7 8 9 10 # 包配置 [package] # 项目名 name = &amp;#34;demo&amp;#34; # 项目版本 version = &amp;#34;0.1.0&amp;#34; # Rust大版本 edition = &amp;#34;2021&amp;#34; # 依赖 [dependencies] '>
+<title>Rust Start</title>
 
-<link rel='canonical' href='https://Ocancel.GitHub.io/en/post/math-typesetting/'>
+<link rel='canonical' href='https://Ocancel.GitHub.io/post/rust-start/'>
 
-<link rel="stylesheet" href="/scss/style.min.3f427d49bab4ab6a575649bfd9132b54b48b2495441443c89554a7858e64359a.css"><meta property='og:title' content='Math Typesetting'>
-<meta property='og:description' content='A brief guide to setup KaTeX'>
-<meta property='og:url' content='https://Ocancel.GitHub.io/en/post/math-typesetting/'>
+<link rel="stylesheet" href="/scss/style.min.3f427d49bab4ab6a575649bfd9132b54b48b2495441443c89554a7858e64359a.css"><meta property='og:title' content='Rust Start'>
+<meta property='og:description' content='Cargo Cargo是Rust的构建系统和包管理器。
+常用的cargo命令 查看cargo版本号 0 cargo --version 使用cargo创建名为demo的项目 0 cargo new demo 使用cargo构建项目 0 cargo build 使用cargo构建并运行项目 0 cargo run 使用cargo构建项目并检查错误，不生成二进制文件 0 cargo check 使用cargo发布构建，优化并编译项目，在target/release生成可执行文件 0 cargo build --release Cargo.toml 0 1 2 3 4 5 6 7 8 9 10 # 包配置 [package] # 项目名 name = &amp;#34;demo&amp;#34; # 项目版本 version = &amp;#34;0.1.0&amp;#34; # Rust大版本 edition = &amp;#34;2021&amp;#34; # 依赖 [dependencies] '>
+<meta property='og:url' content='https://Ocancel.GitHub.io/post/rust-start/'>
 <meta property='og:site_name' content='Ocancel Site'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Math' /><meta property='article:published_time' content='2020-04-08T10:56:21&#43;08:00'/><meta property='article:modified_time' content='2022-11-13T22:20:21&#43;08:00'/>
-<meta name="twitter:title" content="Math Typesetting">
-<meta name="twitter:description" content="A brief guide to setup KaTeX">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-08-17T10:22:54&#43;08:00'/><meta property='article:modified_time' content='2023-08-17T10:22:54&#43;08:00'/>
+<meta name="twitter:title" content="Rust Start">
+<meta name="twitter:description" content="Cargo Cargo是Rust的构建系统和包管理器。
+常用的cargo命令 查看cargo版本号 0 cargo --version 使用cargo创建名为demo的项目 0 cargo new demo 使用cargo构建项目 0 cargo build 使用cargo构建并运行项目 0 cargo run 使用cargo构建项目并检查错误，不生成二进制文件 0 cargo check 使用cargo发布构建，优化并编译项目，在target/release生成可执行文件 0 cargo build --release Cargo.toml 0 1 2 3 4 5 6 7 8 9 10 # 包配置 [package] # 项目名 name = &amp;#34;demo&amp;#34; # 项目版本 version = &amp;#34;0.1.0&amp;#34; # Rust大版本 edition = &amp;#34;2021&amp;#34; # 依赖 [dependencies] ">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -42,7 +45,7 @@
     })();
 </script>
 <div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
-    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
         <span class="hamburger-box">
             <span class="hamburger-inner"></span>
         </span>
@@ -52,7 +55,7 @@
         
             
             <figure class="site-avatar">
-                <a href="/en">
+                <a href="/">
                 
                     <img src="https://cdn.jsdelivr.net/gh/Ocancel/uPicRepo@main/uPic/avator-1685772455096.png" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
                 
@@ -67,7 +70,7 @@
         <div class="site-meta">
             <div class="glitch-wrapper site-name">
                 <div class="glitch" data-text="Ocancel Site">
-                  <a href="/en">Ocancel Site</a>
+                  <a href="/">Ocancel Site</a>
                 </div>
               </div>
             <div class="brief-div site-description">
@@ -141,9 +144,9 @@ This&#39;s it.
             <li id="i18n-switch">  
                 
                     
-                
+                        <button class="language-switch-btn" onclick="window.location.href = 'https:\/\/Ocancel.GitHub.io\/en\/'"><svg t="1685609079080" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="30666" width="200" height="200"><path d="M651.3 390.041h325.224a47.76 47.76 0 0 1 46.623 48.897v536.165A47.76 47.76 0 0 1 976.524 1024H419.322a47.76 47.76 0 0 1-46.623-48.897V633.959H46.907A47.76 47.76 0 0 1 0.284 585.062V48.897A47.76 47.76 0 0 1 46.907 0h557.77A47.76 47.76 0 0 1 651.3 48.897zM46.907 585.061h557.77V48.898H46.907v536.165z m635.665-16.488l-102.343 278.6h45.485l25.018-71.64h113.714l25.018 71.64h43.78l-102.912-278.6z m-22.175 170.572l44.35-126.223 47.19 126.223z m-354.22-625.43h35.251v71.071h135.32v188.198h-35.251V350.81H341.428v130.77h-33.546V350.81h-97.226v22.174h-35.251V184.786h132.477z m-95.52 200.706h96.657v-93.246h-96.658z m130.771 0h100.069v-93.246H341.428z" p-id="30667" fill="currentColor"></path></svg></button>
                     
-                        <button class="language-switch-btn" onclick="window.location.href = 'https:\/\/Ocancel.GitHub.io\/'"><svg t="1685609079080" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="30666" width="200" height="200"><path d="M651.3 390.041h325.224a47.76 47.76 0 0 1 46.623 48.897v536.165A47.76 47.76 0 0 1 976.524 1024H419.322a47.76 47.76 0 0 1-46.623-48.897V633.959H46.907A47.76 47.76 0 0 1 0.284 585.062V48.897A47.76 47.76 0 0 1 46.907 0h557.77A47.76 47.76 0 0 1 651.3 48.897zM46.907 585.061h557.77V48.898H46.907v536.165z m635.665-16.488l-102.343 278.6h45.485l25.018-71.64h113.714l25.018 71.64h43.78l-102.912-278.6z m-22.175 170.572l44.35-126.223 47.19 126.223z m-354.22-625.43h35.251v71.071h135.32v188.198h-35.251V350.81H341.428v130.77h-33.546V350.81h-97.226v22.174h-35.251V184.786h132.477z m-95.52 200.706h96.657v-93.246h-96.658z m130.771 0h100.069v-93.246H341.428z" p-id="30667" fill="currentColor"></path></svg></button>
+                
                     
                 
             </li>
@@ -155,7 +158,7 @@ This&#39;s it.
         
         
         <li >
-            <a href='/en/' >
+            <a href='/' >
                 <div class="menu-icon">
                     
                     
@@ -164,14 +167,14 @@ This&#39;s it.
                     
                 </div>
                 <div class="menu-name">
-                    <span>Home</span>
+                    <span>主页</span>
                 </div>
             </a>
         </li>
         
         
         <li >
-            <a href='/en/categories/' >
+            <a href='/categories/' >
                 <div class="menu-icon">
                     
                     
@@ -180,14 +183,14 @@ This&#39;s it.
                     
                 </div>
                 <div class="menu-name">
-                    <span>Cats</span>
+                    <span>分类</span>
                 </div>
             </a>
         </li>
         
         
         <li >
-            <a href='/en/archives/' >
+            <a href='/archives/' >
                 <div class="menu-icon">
                     
                     
@@ -196,14 +199,14 @@ This&#39;s it.
                     
                 </div>
                 <div class="menu-name">
-                    <span>Archs</span>
+                    <span>归档</span>
                 </div>
             </a>
         </li>
         
         
         <li >
-            <a href='/en/about/' >
+            <a href='/about/' >
                 <div class="menu-icon">
                     
                     
@@ -212,14 +215,14 @@ This&#39;s it.
                     
                 </div>
                 <div class="menu-name">
-                    <span>About</span>
+                    <span>关于</span>
                 </div>
             </a>
         </li>
         
         
         <li >
-            <a href='/en/links/' >
+            <a href='/links/' >
                 <div class="menu-icon">
                     
                     
@@ -228,14 +231,14 @@ This&#39;s it.
                     
                 </div>
                 <div class="menu-name">
-                    <span>Links</span>
+                    <span>链接</span>
                 </div>
             </a>
         </li>
         
         
         <li >
-            <a href='/en/search/' >
+            <a href='/search/' >
                 <div class="menu-icon">
                     
                     
@@ -244,7 +247,7 @@ This&#39;s it.
                     
                 </div>
                 <div class="menu-name">
-                    <span>Search</span>
+                    <span>搜索</span>
                 </div>
             </a>
         </li>
@@ -255,12 +258,12 @@ This&#39;s it.
     <aside class="sidebar right-sidebar sticky">
         
             
-                <form action="/en/search/" class="search-form widget" >
+                <form action="/search/" class="search-form widget" >
         <p>
-            <label>Search</label>
-            <input name="keyword" required placeholder="Type something..." />
+            <label>搜索</label>
+            <input name="keyword" required placeholder="输入关键词..." />
         
-            <button title="Search">
+            <button title="搜索">
                 <svg t="1685549559064" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="83876" width="200" height="200"><path d="M883.626667 823.04l-145.066667-144.64A337.92 337.92 0 0 0 810.666667 469.333333a341.333333 341.333333 0 1 0-341.333334 341.333334 337.92 337.92 0 0 0 209.066667-72.106667l144.64 145.066667a42.666667 42.666667 0 0 0 60.586667 0 42.666667 42.666667 0 0 0 0-60.586667zM213.333333 469.333333a256 256 0 1 1 256 256 256 256 0 0 1-256-256z" p-id="83877" fill="currentColor"></path></svg>
             </button>
         </p>
@@ -274,15 +277,16 @@ This&#39;s it.
             <div class="widget-icon">
                 <svg t="1685551877350" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="119144" width="200" height="200"><path d="M336 96H176c-61.8 0-112 50.2-112 112v160c0 61.8 50.2 112 112 112h160c61.8 0 112-50.2 112-112V208c0-61.8-50.2-112-112-112z m48 272c0 26.5-21.5 48-48 48H176c-26.5 0-48-21.5-48-48V208c0-26.5 21.5-48 48-48h160c26.5 0 48 21.5 48 48v160zM336 544H176c-61.8 0-112 50.2-112 112v160c0 61.8 50.2 112 112 112h160c61.8 0 112-50.2 112-112V656c0-61.8-50.2-112-112-112z m48 272c0 26.5-21.5 48-48 48H176c-26.5 0-48-21.5-48-48V656c0-26.5 21.5-48 48-48h160c26.5 0 48 21.5 48 48v160zM512 160h448v64H512zM512 352h448v64H512zM512 608h448v64H512zM512 800h448v64H512z" fill="currentColor" p-id="119145"></path></svg>
             </div>
-            <h2 class="widget-title">Catalogue</h2>
+            <h2 class="widget-title">目录</h2>
         </div>
         
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li>
+    <li><a href="#cargo">Cargo</a>
       <ol>
-        <li><a href="#examples">Examples</a></li>
+        <li><a href="#常用的cargo命令">常用的cargo命令</a></li>
+        <li><a href="#cargotoml">Cargo.toml</a></li>
       </ol>
     </li>
   </ol>
@@ -303,16 +307,8 @@ This&#39;s it.
     
     <header class="article-category">
         
-            <a href="/en/categories/math/" >
-                Math
-            </a>
-        
-            <a href="/en/categories/markdown/" >
-                Markdown
-            </a>
-        
-            <a href="/en/categories/syntax/" >
-                Syntax
+            <a href="/categories/rust/" style="background-color: #2a9d8f; color: #fff;">
+                Rust
             </a>
         
     </header>
@@ -320,13 +316,9 @@ This&#39;s it.
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/en/post/math-typesetting/">Math Typesetting</a>
+            <a href="/post/rust-start/">Rust Start</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            A brief guide to setup KaTeX
-        </h3>
         
     </div>
 
@@ -338,7 +330,7 @@ This&#39;s it.
         
             <div>
                 <svg t="1685552137132" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2696" width="200" height="200"><path d="M725.333333 170.666667h74.709334C864.853333 170.666667 917.333333 223.189333 917.333333 288.096V799.893333C917.333333 864.757333 864.832 917.333333 800.042667 917.333333H223.957333C159.146667 917.333333 106.666667 864.810667 106.666667 799.904V288.106667C106.666667 223.242667 159.168 170.666667 223.957333 170.666667H298.666667v-32a32 32 0 0 1 64 0v32h298.666666v-32a32 32 0 0 1 64 0v32z m0 64v32a32 32 0 0 1-64 0v-32H362.666667v32a32 32 0 0 1-64 0v-32h-74.709334A53.354667 53.354667 0 0 0 170.666667 288.096V799.893333A53.301333 53.301333 0 0 0 223.957333 853.333333h576.085334A53.354667 53.354667 0 0 0 853.333333 799.904V288.106667A53.301333 53.301333 0 0 0 800.042667 234.666667H725.333333z m-10.666666 224a32 32 0 0 1 0 64H309.333333a32 32 0 0 1 0-64h405.333334zM586.666667 618.666667a32 32 0 0 1 0 64H309.333333a32 32 0 0 1 0-64h277.333334z" fill="currentColor" p-id="2697"></path></svg>
-                <time class="article-time--published">Apr 08 2020</time>
+                <time class="article-time--published">Aug 17 2023</time>
             </div>
         
 
@@ -346,7 +338,7 @@ This&#39;s it.
             <div>
                 <svg t="1685552764557" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9514" width="200" height="200"><path d="M506.77 960a369.98 369.98 0 0 1-230.35-79.15c-162.04-130.81-187.36-368.2-56.55-530.24 123.14-152.54 342.63-185.28 504.92-75.3l71.31-53.01c17.06-11.57 40.28-7.12 51.85 9.94 10.58 15.6 7.87 36.63-6.31 49.05l-70.19 54.13c-26.55 19.91-63.05 19.91-89.6 0-136.92-94.76-324.74-60.59-419.5 76.33s-60.59 324.74 76.33 419.5c136.92 94.76 324.74 60.59 419.5-76.33 65.22-94.24 71.37-217.31 15.88-317.58-10.68-17.83-4.89-40.94 12.93-51.62 17.83-10.68 40.94-4.89 51.62 12.93 0.27 0.45 0.53 0.9 0.78 1.36 101.47 179.49 38.22 407.25-141.27 508.72a373.31 373.31 0 0 1-142.46 46.05c-16.16 2.76-32.5 4.5-48.89 5.22z m125.81-858.67c0-20.62-16.71-37.33-37.33-37.33H445.91c-20.62 0-37.33 16.71-37.33 37.33s16.71 37.33 37.33 37.33h149.33c20.63 0.01 37.34-16.71 37.34-37.33z m-85.49 511.84c14.47-14.56 14.47-38.08 0-52.64L414.93 428.37c-15.66-13.41-39.23-11.58-52.64 4.08-11.97 13.98-11.97 34.59 0 48.56l132.16 132.16c14.56 14.48 38.08 14.48 52.64 0z" fill="currentColor" p-id="9515"></path></svg>
                 <time class="article-time--reading">
-                    1 minute read
+                    阅读时长: 1 分钟
                 </time>
             </div>
         
@@ -361,51 +353,110 @@ This&#39;s it.
     <section class="article-content">
     
     
-    <p>Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.</p>
-<p>In this example we will be using <a class="link" href="https://katex.org/"  target="_blank" rel="noopener"
-    >KaTeX</a></p>
+    <h2 id="cargo">Cargo</h2>
+<p>Cargo是Rust的构建系统和包管理器。</p>
+<h3 id="常用的cargo命令">常用的cargo命令</h3>
 <ul>
-<li>Create a partial under <code>/layouts/partials/math.html</code></li>
-<li>Within this partial reference the <a class="link" href="https://katex.org/docs/autorender.html"  target="_blank" rel="noopener"
-    >Auto-render Extension</a> or host these scripts locally.</li>
-<li>Include the partial in your templates like so:</li>
+<li>查看cargo版本号</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
-</span><span class="lnt">1
-</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{{</span> <span class="k">if</span> or .Params.math .Site.Params.math <span class="o">}}</span>
-</span></span><span class="line"><span class="cl"><span class="o">{{</span> partial <span class="s2">&#34;math.html&#34;</span> . <span class="o">}}</span>
-</span></span><span class="line"><span class="cl"><span class="o">{{</span> end <span class="o">}}</span>
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo --version
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>To enable KaTex globally set the parameter <code>math</code> to <code>true</code> in a project&rsquo;s configuration</li>
-<li>To enable KaTex on a per page basis include the parameter <code>math: true</code> in content files</li>
+<li>使用cargo创建名为demo的项目</li>
 </ul>
-<p><strong>Note:</strong> Use the online reference of <a class="link" href="https://katex.org/docs/supported.html"  target="_blank" rel="noopener"
-    >Supported TeX Functions</a></p>
-
-<h3 id="examples">Examples</h3>
-
-<p>Block math:
-$$
-\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
-$$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo new demo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>使用cargo构建项目</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo build
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>使用cargo构建并运行项目</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo run
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>使用cargo构建项目并检查错误，不生成二进制文件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo check
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>使用cargo发布构建，优化并编译项目，在<code>target/release</code>生成可执行文件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo build --release
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="cargotoml">Cargo.toml</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 0
+</span><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># 包配置</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">package</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 项目名</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;demo&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 项目版本</span>
+</span></span><span class="line"><span class="cl"><span class="nx">version</span> <span class="p">=</span> <span class="s2">&#34;0.1.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c"># Rust大版本</span>
+</span></span><span class="line"><span class="cl"><span class="nx">edition</span> <span class="p">=</span> <span class="s2">&#34;2021&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 依赖</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">dependencies</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
     <footer class="article-footer">
     
-    <section class="article-tags">
-        
-            <a href="/en/tags/math/">Math</a>
-        
-    </section>
-
 
     
     <section class="article-copyright">
@@ -413,86 +464,28 @@ $$</p>
 
         <span>Licensed under CC BY-NC-SA 4.0</span>
     </section>
-    <section class="article-lastmod">
-        <svg t="1685582516965" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="58581" width="200" height="200"><path d="M740.23 957.13c-106.95 0-193.97-87.02-193.97-193.97s87.02-193.97 193.97-193.97S934.2 656.2 934.2 763.15s-87.02 193.98-193.97 193.98z m0-324.78c-72.12 0-130.8 58.69-130.8 130.8s58.69 130.8 130.8 130.8 130.8-58.69 130.8-130.8-58.69-130.8-130.8-130.8z" fill="currentColor" p-id="58582"></path><path d="M508.5 936.85H204.41C141.32 936.85 90 885.53 90 822.46V264.35c0-63.07 51.33-114.39 114.41-114.39h590.52c63.07 0 114.39 51.33 114.39 114.39v255.13c0 17.44-14.15 31.59-31.59 31.59-17.44 0-31.59-14.15-31.59-31.59V264.35c0-28.25-22.97-51.22-51.22-51.22H204.41c-28.25 0-51.24 22.97-51.24 51.22v558.11c0 28.25 22.99 51.22 51.24 51.22H508.5c17.44 0 31.59 14.15 31.59 31.59s-14.15 31.58-31.59 31.58z" fill="currentColor" p-id="58583"></path><path d="M318.5 270.72c-17.44 0-31.59-14.15-31.59-31.59V98.71c0-17.44 14.15-31.59 31.59-31.59s31.59 14.15 31.59 31.59v140.43c-0.01 17.44-14.16 31.58-31.59 31.58zM680.84 270.72c-17.44 0-31.59-14.15-31.59-31.59V98.71c0-17.44 14.15-31.59 31.59-31.59 17.44 0 31.59 14.15 31.59 31.59v140.43c0 17.44-14.15 31.58-31.59 31.58zM777.14 434H222.18c-17.44 0-31.59-14.15-31.59-31.59s14.15-31.59 31.59-31.59h554.96c17.44 0 31.59 14.15 31.59 31.59S794.58 434 777.14 434z" fill="currentColor" p-id="58584"></path><path d="M785.59 796.92h-42.4c-23.61 0-42.81-19.21-42.81-42.83V696.4c0-17.44 14.15-31.59 31.59-31.59 17.44 0 31.59 14.15 31.59 31.59v37.34h22.04c17.44 0 31.59 14.15 31.59 31.59s-14.16 31.59-31.6 31.59z" fill="currentColor" p-id="58585"></path></svg>
+    
+    <section class="article-sponsor">
+        <svg t="1686200132605" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1508" width="200" height="200"><path d="M733.056 151.552l-103.765333 36.522667-107.690667-90.154667-108.842667 91.136-32.213333-8.661333-83.925333-22.613334 109.482666 180.224-64.554666 30.208c-53.546667 25.088-98.730667 60.330667-132.010667 102.698667C169.941333 521.386667 149.333333 579.242667 149.333333 638.890667c0 41.301333 9.685333 81.237333 28.928 119.168 18.773333 36.906667 45.696 70.272 80.426667 99.157333 72.064 60.032 168.618667 93.44 271.914667 93.44 103.253333 0 199.850667-33.408 271.914666-93.44 34.730667-28.885333 61.696-62.250667 80.426667-99.157333 19.285333-37.973333 28.928-77.866667 28.928-119.168 0-62.634667-22.485333-122.88-65.834667-174.933334-36.992-44.458667-86.784-80.213333-145.493333-104.106666L634.24 332.8l34.261333-62.890667 64.554667-118.357333z m15.786667 89.770667l3.242666 9.045333-27.392 50.218667c19.029333 7.722667 37.290667 16.64 54.698667 26.453333l1.493333 4.181333 1.365334-2.517333a418.944 418.944 0 0 1 112.981333 94.293333c52.778667 63.402667 80.64 138.069333 80.64 215.893334a324.394667 324.394667 0 0 1-35.84 148.138666c-22.784 44.8-55.253333 84.992-96.554667 119.381334-83.797333 69.802667-194.944 108.245333-312.874666 108.245333-117.930667 0-229.034667-38.442667-312.874667-108.245333-41.258667-34.389333-73.770667-74.538667-96.512-119.381334A324.394667 324.394667 0 0 1 85.333333 638.890667c0-74.24 25.557333-145.962667 73.898667-207.488A410.837333 410.837333 0 0 1 258.389333 341.333333l2.432-1.578666a460.8 460.8 0 0 1 53.589334-29.525334l-29.866667-49.066666-3.541333-5.888-83.84-138.069334a29.44 29.44 0 0 1 32.853333-43.733333L397.226667 118.570667 502.613333 30.293333a29.44 29.44 0 0 1 37.845334 0l101.888 85.333334 150.357333-52.906667a29.44 29.44 0 0 1 40.106667 39.552L755.456 244.053333a548.864 548.864 0 0 0-6.656-2.730666zM666.581333 610.133333a28.16 28.16 0 0 1-28.16 28.16h-87.424v25.386667h87.424a28.16 28.16 0 1 1 0 56.405333h-87.424v28.16a28.16 28.16 0 1 1-56.362666 0v-28.16H408.618667a28.16 28.16 0 1 1 0-56.405333h86.016v-25.344H408.618667a28.16 28.16 0 1 1 0-56.405333h72.405333l-56.704-68.053334a28.16 28.16 0 1 1 43.349333-36.096l55.466667 66.645334 57.6-66.986667a28.16 28.16 0 0 1 42.752 36.778667L565.333333 581.973333h73.130667a28.16 28.16 0 0 1 28.16 28.202667z" fill="currentColor" p-id="1509"></path></svg>
         <span>
-            Last updated on Nov 13 2022 22:20 CST
+            赞助
         </span>
-    </section></footer>
-
-
-    
-        <link 
-                rel="stylesheet" 
-                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
-            ><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
-                defer
-                >
-            </script><script 
-                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
-                defer
-                >
-            </script><script>
-    window.addEventListener("DOMContentLoaded", () => {
-        renderMathInElement(document.querySelector(`.article-content`), {
-            delimiters: [
-                { left: "$$", right: "$$", display: true },
-                { left: "$", right: "$", display: false },
-                { left: "\\(", right: "\\)", display: false },
-                { left: "\\[", right: "\\]", display: true }
-            ],
-            ignoredClasses: ["gist"]
-        });})
-</script>
-    
-</article>
-
-    
-
-    
-
-<aside class="related-content--wrapper">
-    <section class="widget relation">
-        <div class="weiget-name">
-            <div class="widget-icon">
-                <svg t="1685582097401" class="icon" viewBox="0 0 1544 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="34920" width="200" height="200"><path d="M 607.233 892.701 a 134.815 134.815 0 0 1 -190.466 0 L 131.299 607.233 a 134.815 134.815 0 0 1 0 -190.466 L 416.767 131.299 a 134.815 134.815 0 0 1 190.466 0 l 285.469 285.469 a 134.815 134.815 0 0 1 0 190.466 a 45.9729 45.9729 0 0 0 65.0286 65.0286 a 226.922 226.922 0 0 0 0 -320.523 L 672.261 66.2699 a 226.922 226.922 0 0 0 -320.523 0 L 66.2699 351.693 a 226.922 226.922 0 0 0 0 320.523 L 351.693 957.73 a 226.922 226.922 0 0 0 320.523 0 a 45.9729 45.9729 0 0 0 -65.0286 -65.0286 Z" fill="currentColor" p-id="34921"></path><path d="M 1478.03 351.693 L 1192.56 66.2699 a 226.922 226.922 0 0 0 -320.523 0 a 45.9729 45.9729 0 1 0 65.0286 65.0286 a 134.815 134.815 0 0 1 190.466 0 l 285.492 285.469 a 134.861 134.861 0 0 1 0 190.466 l -285.492 285.469 a 134.815 134.815 0 0 1 -190.466 0 L 651.597 607.233 a 134.815 134.815 0 0 1 0 -190.466 A 45.9729 45.9729 0 1 0 586.568 351.693 a 226.922 226.922 0 0 0 0 320.523 l 285.469 285.515 a 226.922 226.922 0 0 0 320.523 0 L 1478.03 672.261 A 226.922 226.922 0 0 0 1478.03 351.693 Z" fill="currentColor" p-id="34922"></path></svg>
-            </div>
-            <h2 class="widget-title">Related</h2>
-        </div>
-        <div class="related-content">
-            <div class="flex article-list--tile">
-                
-                    
-<article class="">
-    <a href="/en/post/markdown-syntax-guide/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Markdown Syntax Guide</h2>
-        </div>
-    </a>
-</article>
-
-                
-                    
-<article class="">
-    <a href="/en/post/rich-content/">
-        
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Rich Content</h2>
-        </div>
-    </a>
-</article>
-
-                
-            </div>
-        </div>
     </section>
-</aside>
+    <section class="article-sponsor-image"><div>
+                    <img src="https://cdn.jsdelivr.net/gh/Ocancel/uPicRepo@main/uPic/WeChatPay-1686238766427.png" width="120" height="120" class="article-sponsor-image" loading="lazy" alt="Sponsor">
+                    <span>WeChat Pay</span>
+                </div><div>
+                    <img src="https://cdn.jsdelivr.net/gh/Ocancel/uPicRepo@main/uPic/AliPay-1686238748125.png" width="120" height="120" class="article-sponsor-image" loading="lazy" alt="Sponsor">
+                    <span>Ali Pay</span>
+                </div></section></footer>
+
+
+    
+</article>
+
+    
+
+    
 
      
     
