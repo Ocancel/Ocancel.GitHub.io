@@ -110,7 +110,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;dependencies&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;p&gt;参考链接：&lt;a class=&#34;link&#34; href=&#34;https://rustwiki.org/zh-CN/book/ch01-03-hello-cargo.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Rust 入门指南&lt;/a&gt;&lt;/p&gt;
+</description>
         </item>
         
     </channel>
