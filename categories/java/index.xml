@@ -124,7 +124,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;3-打包项目&#34;&gt;3. 打包项目&lt;/h3&gt;
-&lt;p&gt;在Maven工具中，使用&lt;code&gt;assenbly:assembly&lt;/code&gt;打包，在&lt;code&gt;demo/target&lt;/code&gt;目录下将生成&lt;code&gt;demo-util-1.0.0.jar&lt;/code&gt;文件。&lt;/p&gt;
+&lt;p&gt;在Maven工具中，使用&lt;code&gt;assembly:assembly&lt;/code&gt;打包，在&lt;code&gt;demo/target&lt;/code&gt;目录下将生成&lt;code&gt;demo-util-1.0.0.jar&lt;/code&gt;文件。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
 &lt;p&gt;在其他项目中导入&lt;code&gt;demo-util-1.0.0.jar&lt;/code&gt;依赖后即可使用。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
