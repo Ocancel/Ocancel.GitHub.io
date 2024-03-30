@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://Ocancel.GitHub.io/post/postgresql-lock-table/'>
 
-<link rel="stylesheet" href="/scss/style.min.3f427d49bab4ab6a575649bfd9132b54b48b2495441443c89554a7858e64359a.css"><meta property='og:title' content='PostgreSQL 锁表解决方案'>
+<link rel="stylesheet" href="/scss/style.min.efc576af245a4d146b5f0169fe55cbbc96d89feba43d38f85777f009b7361bb9.css"><meta property='og:title' content='PostgreSQL 锁表解决方案'>
 <meta property='og:description' content='根据表名查询pid列表 0 1 2 3 4 select locks.pid from pg_locks locks inner join pg_class class on locks.relation = class.oid where class.relname = &amp;#39;table_name&amp;#39;; 使用终止函数终止pid 0 select pg_terminate_backend(pid); '>
 <meta property='og:url' content='https://Ocancel.GitHub.io/post/postgresql-lock-table/'>
 <meta property='og:site_name' content='Ocancel Site'>
@@ -265,6 +265,29 @@ This&#39;s it.
             </button>
         </p>
     </form>
+            
+        
+            
+                <section class="widget sentence">
+    <div class="weiget-name">
+        <div class="widget-icon">
+            <svg class="icon" width="200px" height="200.00px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M520.533333 878.933333c-64.853333 0-126.293333-17.066667-179.2-46.08-51.2 13.653333-98.986667 13.653333-114.346666 13.653334-29.013333 0-100.693333-22.186667-49.493334-49.493334 22.186667-11.946667 37.546667-37.546667 47.786667-63.146666-49.493333-63.146667-80.213333-143.36-80.213333-230.4 0-208.213333 167.253333-375.466667 375.466666-375.466667s375.466667 167.253333 375.466667 375.466667-167.253333 375.466667-375.466667 375.466666z m-153.6-238.933333h153.6c18.773333 0 34.133333-15.36 34.133334-34.133333s-15.36-34.133333-34.133334-34.133334h-153.6c-18.773333 0-34.133333 15.36-34.133333 34.133334s15.36 34.133333 34.133333 34.133333z m307.2-238.933333h-307.2c-18.773333 0-34.133333 15.36-34.133333 34.133333s15.36 34.133333 34.133333 34.133333h307.2c18.773333 0 34.133333-15.36 34.133334-34.133333s-15.36-34.133333-34.133334-34.133333z" fill="currentColor" /></svg>
+        </div>
+        <h2 class="widget-title">短句</h2>
+    </div>
+    <div class="sentence-windows">
+        <div class="sentence-content">
+            <p class="sentence-hi"> </p>
+            <p class="sentence-from"> </p>
+            <div class="sentence-progress-con">
+                <div class="sentence-progress-time" style="left:0%"></div>
+            </div>
+        </div>
+        <div class="sentence-button">
+            <input type="button" class="sentence-sub" value="update">
+        </div>
+    </div>
+</section>
             
         
             

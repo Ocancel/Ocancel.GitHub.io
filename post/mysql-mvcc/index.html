@@ -15,7 +15,7 @@ DB_TRX_ID：6byte， 最后修改（插入/更新）的事务ID DB_ROLL_PTR：7b
 
 <link rel='canonical' href='https://Ocancel.GitHub.io/post/mysql-mvcc/'>
 
-<link rel="stylesheet" href="/scss/style.min.3f427d49bab4ab6a575649bfd9132b54b48b2495441443c89554a7858e64359a.css"><meta property='og:title' content='MySQL MVCC'>
+<link rel="stylesheet" href="/scss/style.min.efc576af245a4d146b5f0169fe55cbbc96d89feba43d38f85777f009b7361bb9.css"><meta property='og:title' content='MySQL MVCC'>
 <meta property='og:description' content='简介 MVCC全称Multi-Version Concurrency Control，即多版本并发控制。MVCC是一种并发控制的方法，一般在数据库管理系统中，实现对数据库的并发访问，在编程语言中实现事务内存。
 多版本并发控制：指的是一种高并发技术。最早的数据库系统，只有读读之间可以并发，读写，写读，写写都要阻塞。引入多版本之后，只有写写之间相互阻塞，其他三种操作都可以并行，这样大幅度提高了InnoDB的并发度。在内部实现中，InnoDB是基于undo log实现的，通过undo log可以找回数据的历史版本。找回的数据历史版本可以提供给用户读（按照隔离级别的定义，有些读请求只能看到比较老的数据版本），也可以在回滚的时候覆盖数据页上的数据。在InnoDB内部中，会记录一个全局的活跃读写事务数组，其主要用来判断事务的可见性。
 MVCC是一种多版本并发控制机制。
@@ -292,6 +292,29 @@ This&#39;s it.
             </button>
         </p>
     </form>
+            
+        
+            
+                <section class="widget sentence">
+    <div class="weiget-name">
+        <div class="widget-icon">
+            <svg class="icon" width="200px" height="200.00px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M520.533333 878.933333c-64.853333 0-126.293333-17.066667-179.2-46.08-51.2 13.653333-98.986667 13.653333-114.346666 13.653334-29.013333 0-100.693333-22.186667-49.493334-49.493334 22.186667-11.946667 37.546667-37.546667 47.786667-63.146666-49.493333-63.146667-80.213333-143.36-80.213333-230.4 0-208.213333 167.253333-375.466667 375.466666-375.466667s375.466667 167.253333 375.466667 375.466667-167.253333 375.466667-375.466667 375.466666z m-153.6-238.933333h153.6c18.773333 0 34.133333-15.36 34.133334-34.133333s-15.36-34.133333-34.133334-34.133334h-153.6c-18.773333 0-34.133333 15.36-34.133333 34.133334s15.36 34.133333 34.133333 34.133333z m307.2-238.933333h-307.2c-18.773333 0-34.133333 15.36-34.133333 34.133333s15.36 34.133333 34.133333 34.133333h307.2c18.773333 0 34.133333-15.36 34.133334-34.133333s-15.36-34.133333-34.133334-34.133333z" fill="currentColor" /></svg>
+        </div>
+        <h2 class="widget-title">短句</h2>
+    </div>
+    <div class="sentence-windows">
+        <div class="sentence-content">
+            <p class="sentence-hi"> </p>
+            <p class="sentence-from"> </p>
+            <div class="sentence-progress-con">
+                <div class="sentence-progress-time" style="left:0%"></div>
+            </div>
+        </div>
+        <div class="sentence-button">
+            <input type="button" class="sentence-sub" value="update">
+        </div>
+    </div>
+</section>
             
         
             
