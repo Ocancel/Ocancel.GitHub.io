@@ -15,7 +15,7 @@ DB_TRX_ID：6byte， 最后修改（插入/更新）的事务ID DB_ROLL_PTR：7b
 
 <link rel='canonical' href='https://Ocancel.GitHub.io/post/mysql-mvcc/'>
 
-<link rel="stylesheet" href="/scss/style.min.00a6e5d3860b4f32e0d0ea39cd79275cc435427f3323721e1a5c9b2a53409881.css"><meta property='og:title' content='MySQL MVCC'>
+<link rel="stylesheet" href="/scss/style.min.9800cc73b4b116e7f007a78e28100d9a91c972801f87152a6a8e397a03932db8.css"><meta property='og:title' content='MySQL MVCC'>
 <meta property='og:description' content='简介 MVCC全称Multi-Version Concurrency Control，即多版本并发控制。MVCC是一种并发控制的方法，一般在数据库管理系统中，实现对数据库的并发访问，在编程语言中实现事务内存。
 多版本并发控制：指的是一种高并发技术。最早的数据库系统，只有读读之间可以并发，读写，写读，写写都要阻塞。引入多版本之后，只有写写之间相互阻塞，其他三种操作都可以并行，这样大幅度提高了InnoDB的并发度。在内部实现中，InnoDB是基于undo log实现的，通过undo log可以找回数据的历史版本。找回的数据历史版本可以提供给用户读（按照隔离级别的定义，有些读请求只能看到比较老的数据版本），也可以在回滚的时候覆盖数据页上的数据。在InnoDB内部中，会记录一个全局的活跃读写事务数组，其主要用来判断事务的可见性。
 MVCC是一种多版本并发控制机制。
