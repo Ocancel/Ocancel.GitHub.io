@@ -13,7 +13,7 @@ HashMap类内部维护了一个哈希桶数组，它是一个Node的数组，采
 结构 JDK1.8以上的HashMap采用的是数组&#43;链表&#43;红黑树结构实现的。
 HashMap类内部维护了一个哈希桶数组，它是一个Node的数组，采用静态内部类Node来实现 0 1 2 3 4 5 6 7 8 9 10 11 12 static class Node&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; { final int hash; //用来定位数组索引位置 final K key; V value; Node&amp;lt;K,V&amp;gt; next; //链表的下一个node Node(int hash, K key, V value, Node&amp;lt;K,V&amp;gt; next) { ... } public final K getKey(){ ... } public final V getValue() { ... } public final String toString() { ... } public final int hashCode() { .'>
 <meta property='og:url' content='https://Ocancel.GitHub.io/post/java-hashmap/'>
-<meta property='og:site_name' content='Ocancel Site'>
+<meta property='og:site_name' content='Ocancel 的博客'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='HashMap' /><meta property='article:published_time' content='2021-01-21T16:24:46&#43;08:00'/><meta property='article:modified_time' content='2021-01-25T14:02:14&#43;08:00'/><meta property='og:image' content='https://cdn.jsdelivr.net/gh/Ocancel/uPicRepo@main/uPic/HashMap的put流程-1686125896466.png' />
 <meta name="twitter:title" content="Java HashMap">
 <meta name="twitter:description" content="简介 HashMap根据键的hashCode值存储数据，大多数情况下可以直接定位到它的值，因而具有很快的访问速度，但遍历顺序却是不确定的。 HashMap最多只允许一条记录的键为null，允许多条记录的值为null。HashMap非线程安全，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致。如果需要满足线程安全，可以用 Collections的synchronizedMap方法使HashMap具有线程安全的能力，或者使用ConcurrentHashMap。
@@ -73,8 +73,8 @@ HashMap类内部维护了一个哈希桶数组，它是一个Node的数组，采
         
         <div class="site-meta">
             <div class="glitch-wrapper site-name">
-                <div class="glitch" data-text="Ocancel Site">
-                  <a href="/">Ocancel Site</a>
+                <div class="glitch" data-text="Ocancel 的博客">
+                  <a href="/">Ocancel 的博客</a>
                 </div>
               </div>
             <div class="brief-div site-description">
@@ -850,7 +850,7 @@ This&#39;s it.
         
             2020 - 
         
-        2024 Ocancel Site
+        2024 Ocancel 的博客
     </section>
     
     <section class="powerby">

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>PostgreSQL on Ocancel Site</title>
+        <title>PostgreSQL on Ocancel 的博客</title>
         <link>https://Ocancel.GitHub.io/tags/postgresql/</link>
-        <description>Recent content in PostgreSQL on Ocancel Site</description>
+        <description>Recent content in PostgreSQL on Ocancel 的博客</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <lastBuildDate>Wed, 24 May 2023 20:09:29 +0800</lastBuildDate><atom:link href="https://Ocancel.GitHub.io/tags/postgresql/index.xml" rel="self" type="application/rss+xml" /><item>
