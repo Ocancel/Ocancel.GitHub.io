@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Cargo Cargo是Rust的构建系统和包管理器。
-常用的cargo命令 查看cargo版本号 0 cargo --version 使用cargo创建名为demo的项目 0 cargo new demo 使用cargo构建项目 0 cargo build 使用cargo构建并运行项目 0 cargo run 使用cargo构建项目并检查错误，不生成二进制文件 0 cargo check 使用cargo发布构建，优化并编译项目，在target/release生成可执行文件 0 cargo build --release Cargo.toml 0 1 2 3 4 5 6 7 8 9 10 # 包配置 [package] # 项目名 name = &amp;#34;demo&amp;#34; # 项目版本 version = &amp;#34;0.1.0&amp;#34; # Rust大版本 edition = &amp;#34;2021&amp;#34; # 依赖 [dependencies] 参考链接：Rust 入门指南'>
-<title>Rust Start</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Rust variables and data types'>
+<title>Rust 变量与数据类型</title>
 
-<link rel='canonical' href='https://Ocancel.GitHub.io/post/rust-start/'>
+<link rel='canonical' href='https://Ocancel.GitHub.io/post/rust-variables-and-data-types/'>
 
-<link rel="stylesheet" href="/scss/style.min.5a29fef0a6a3da2d98b0bfa78d55801413805644bb52b1d67b8f5f5c63e7ad00.css"><meta property='og:title' content='Rust Start'>
-<meta property='og:description' content='Cargo Cargo是Rust的构建系统和包管理器。
-常用的cargo命令 查看cargo版本号 0 cargo --version 使用cargo创建名为demo的项目 0 cargo new demo 使用cargo构建项目 0 cargo build 使用cargo构建并运行项目 0 cargo run 使用cargo构建项目并检查错误，不生成二进制文件 0 cargo check 使用cargo发布构建，优化并编译项目，在target/release生成可执行文件 0 cargo build --release Cargo.toml 0 1 2 3 4 5 6 7 8 9 10 # 包配置 [package] # 项目名 name = &amp;#34;demo&amp;#34; # 项目版本 version = &amp;#34;0.1.0&amp;#34; # Rust大版本 edition = &amp;#34;2021&amp;#34; # 依赖 [dependencies] 参考链接：Rust 入门指南'>
-<meta property='og:url' content='https://Ocancel.GitHub.io/post/rust-start/'>
+<link rel="stylesheet" href="/scss/style.min.5a29fef0a6a3da2d98b0bfa78d55801413805644bb52b1d67b8f5f5c63e7ad00.css"><meta property='og:title' content='Rust 变量与数据类型'>
+<meta property='og:description' content='Rust variables and data types'>
+<meta property='og:url' content='https://Ocancel.GitHub.io/post/rust-variables-and-data-types/'>
 <meta property='og:site_name' content='Xiaoqi&#39;s Site'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-08-17T10:22:54&#43;08:00'/><meta property='article:modified_time' content='2023-08-17T10:22:54&#43;08:00'/>
-<meta name="twitter:title" content="Rust Start">
-<meta name="twitter:description" content="Cargo Cargo是Rust的构建系统和包管理器。
-常用的cargo命令 查看cargo版本号 0 cargo --version 使用cargo创建名为demo的项目 0 cargo new demo 使用cargo构建项目 0 cargo build 使用cargo构建并运行项目 0 cargo run 使用cargo构建项目并检查错误，不生成二进制文件 0 cargo check 使用cargo发布构建，优化并编译项目，在target/release生成可执行文件 0 cargo build --release Cargo.toml 0 1 2 3 4 5 6 7 8 9 10 # 包配置 [package] # 项目名 name = &amp;#34;demo&amp;#34; # 项目版本 version = &amp;#34;0.1.0&amp;#34; # Rust大版本 edition = &amp;#34;2021&amp;#34; # 依赖 [dependencies] 参考链接：Rust 入门指南">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-02-01T10:42:57&#43;08:00'/><meta property='article:modified_time' content='2024-02-01T10:42:57&#43;08:00'/>
+<meta name="twitter:title" content="Rust 变量与数据类型">
+<meta name="twitter:description" content="Rust variables and data types">
     <link rel="shortcut icon" href="/favicon.ico" />
 
     </head>
@@ -324,10 +321,30 @@ This&#39;s it.
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#cargo">Cargo</a>
+    <li><a href="#变量和可变性">变量和可变性</a>
       <ol>
-        <li><a href="#常用的cargo命令">常用的cargo命令</a></li>
-        <li><a href="#cargotoml">Cargo.toml</a></li>
+        <li><a href="#变量">变量</a></li>
+        <li><a href="#常量">常量</a></li>
+        <li><a href="#遮蔽">遮蔽</a></li>
+      </ol>
+    </li>
+    <li><a href="#数据类型">数据类型</a>
+      <ol>
+        <li><a href="#标量类型">标量类型</a>
+          <ol>
+            <li><a href="#整型">整型</a></li>
+            <li><a href="#浮点类型">浮点类型</a></li>
+            <li><a href="#数字运算">数字运算</a></li>
+            <li><a href="#布尔类型">布尔类型</a></li>
+            <li><a href="#字符类型">字符类型</a></li>
+          </ol>
+        </li>
+        <li><a href="#复合类型">复合类型</a>
+          <ol>
+            <li><a href="#元组类型">元组类型</a></li>
+            <li><a href="#数组类型">数组类型</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -357,9 +374,13 @@ This&#39;s it.
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/post/rust-start/">Rust Start</a>
+            <a href="/post/rust-variables-and-data-types/">Rust 变量与数据类型</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            Rust variables and data types
+        </h3>
         
     </div>
 
@@ -371,7 +392,7 @@ This&#39;s it.
         
             <div>
                 <svg t="1685552137132" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2696" width="200" height="200"><path d="M725.333333 170.666667h74.709334C864.853333 170.666667 917.333333 223.189333 917.333333 288.096V799.893333C917.333333 864.757333 864.832 917.333333 800.042667 917.333333H223.957333C159.146667 917.333333 106.666667 864.810667 106.666667 799.904V288.106667C106.666667 223.242667 159.168 170.666667 223.957333 170.666667H298.666667v-32a32 32 0 0 1 64 0v32h298.666666v-32a32 32 0 0 1 64 0v32z m0 64v32a32 32 0 0 1-64 0v-32H362.666667v32a32 32 0 0 1-64 0v-32h-74.709334A53.354667 53.354667 0 0 0 170.666667 288.096V799.893333A53.301333 53.301333 0 0 0 223.957333 853.333333h576.085334A53.354667 53.354667 0 0 0 853.333333 799.904V288.106667A53.301333 53.301333 0 0 0 800.042667 234.666667H725.333333z m-10.666666 224a32 32 0 0 1 0 64H309.333333a32 32 0 0 1 0-64h405.333334zM586.666667 618.666667a32 32 0 0 1 0 64H309.333333a32 32 0 0 1 0-64h277.333334z" fill="currentColor" p-id="2697"></path></svg>
-                <time class="article-time--published">Aug 17 2023</time>
+                <time class="article-time--published">Feb 01 2024</time>
             </div>
         
 
@@ -379,7 +400,7 @@ This&#39;s it.
             <div>
                 <svg t="1685552764557" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9514" width="200" height="200"><path d="M506.77 960a369.98 369.98 0 0 1-230.35-79.15c-162.04-130.81-187.36-368.2-56.55-530.24 123.14-152.54 342.63-185.28 504.92-75.3l71.31-53.01c17.06-11.57 40.28-7.12 51.85 9.94 10.58 15.6 7.87 36.63-6.31 49.05l-70.19 54.13c-26.55 19.91-63.05 19.91-89.6 0-136.92-94.76-324.74-60.59-419.5 76.33s-60.59 324.74 76.33 419.5c136.92 94.76 324.74 60.59 419.5-76.33 65.22-94.24 71.37-217.31 15.88-317.58-10.68-17.83-4.89-40.94 12.93-51.62 17.83-10.68 40.94-4.89 51.62 12.93 0.27 0.45 0.53 0.9 0.78 1.36 101.47 179.49 38.22 407.25-141.27 508.72a373.31 373.31 0 0 1-142.46 46.05c-16.16 2.76-32.5 4.5-48.89 5.22z m125.81-858.67c0-20.62-16.71-37.33-37.33-37.33H445.91c-20.62 0-37.33 16.71-37.33 37.33s16.71 37.33 37.33 37.33h149.33c20.63 0.01 37.34-16.71 37.34-37.33z m-85.49 511.84c14.47-14.56 14.47-38.08 0-52.64L414.93 428.37c-15.66-13.41-39.23-11.58-52.64 4.08-11.97 13.98-11.97 34.59 0 48.56l132.16 132.16c14.56 14.48 38.08 14.48 52.64 0z" fill="currentColor" p-id="9515"></path></svg>
                 <time class="article-time--reading">
-                    阅读时长: 1 分钟
+                    阅读时长: 2 分钟
                 </time>
             </div>
         
@@ -394,106 +415,293 @@ This&#39;s it.
     <section class="article-content">
     
     
-    <h2 id="cargo">Cargo</h2>
-<p>Cargo是Rust的构建系统和包管理器。</p>
-<h3 id="常用的cargo命令">常用的cargo命令</h3>
+    <h2 id="变量和可变性">变量和可变性</h2>
+<h3 id="变量">变量</h3>
+<p>在Rust中，变量默认是不可变的，可以通过在变量前增加<code>mut</code>关键字使其可变。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// 不可变变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// 可变变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="常量">常量</h3>
+<p>常量是绑定到一个常量名且不允许更改的值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">const</span><span class="w"> </span><span class="no">PI</span>: <span class="kt">f32</span> <span class="o">=</span><span class="w"> </span><span class="mf">3.1415927</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>常量与不可变变量的区别：</p>
 <ul>
-<li>查看cargo版本号</li>
+<li>常量使用<code>const</code>关键字声明；</li>
+<li>常量声明必须使用类型标注；</li>
+<li>常量可以在任意作用域内声明，包括全局作用域，且在声明的作用域内始终有效；</li>
+<li>常量只能设置常量表达式，不能设置函数或运行计算结果。</li>
 </ul>
+</blockquote>
+<h3 id="遮蔽">遮蔽</h3>
+<p>声明和已有变量具有相同名称的新变量叫<strong>遮蔽</strong>，使用<code>let</code>关键字来遮蔽变量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;str&#34;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>遮蔽与<code>mut</code>关键字的区别：</p>
+<ul>
+<li>遮蔽可以修改变量的可变性；</li>
+<li>遮蔽可以修改变量的类型。</li>
+</ul>
+</blockquote>
+<h2 id="数据类型">数据类型</h2>
+<p>Rust 的每个值都有确切的<strong>数据类型</strong>，同时Rust又是一种<strong>静态类型</strong>语言，即在编译期就能推断出所有变量的类型。</p>
+<h3 id="标量类型">标量类型</h3>
+<p>标量类型表示单个值，Rust有4个基本的标量类型：<strong>整型</strong>、<strong>浮点型</strong>、<strong>布尔型</strong>和<strong>字符</strong>。</p>
+<h4 id="整型">整型</h4>
+<p>整型是指没有小数的数字类型，Rust的整型分为有符号整型和无符号整型，分别以<code>i</code>和<code>u</code>表示。</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>长度</th>
+<th>有符号类型</th>
+<th style="text-align:left">无符号类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8 bit</td>
+<td><code>i8</code></td>
+<td style="text-align:left"><code>u8</code></td>
+</tr>
+<tr>
+<td>16 bit</td>
+<td><code>i16</code></td>
+<td style="text-align:left"><code>u16</code></td>
+</tr>
+<tr>
+<td>32 bit</td>
+<td><code>i32</code></td>
+<td style="text-align:left"><code>u32</code></td>
+</tr>
+<tr>
+<td>64 bit</td>
+<td><code>i64</code></td>
+<td style="text-align:left"><code>u64</code></td>
+</tr>
+<tr>
+<td>128 bit</td>
+<td><code>i128</code></td>
+<td style="text-align:left"><code>u128</code></td>
+</tr>
+<tr>
+<td>arch</td>
+<td><code>isize</code></td>
+<td style="text-align:left"><code>usize</code></td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>数字范围</p>
+<ul>
+<li>有符号整型：-(2<sup>n - 1</sup>) ~ 2<sup>n - 1</sup> - 1</li>
+<li>无符号整型：0 ~ 2<sup>n</sup> - 1</li>
+</ul>
+</blockquote>
+<p><code>isize</code>和<code>usize</code>类型取决于程序运行的计算机体系结构（32位或64位）。</p>
+<p>整型字面量：</p>
+<ul>
+<li>当数字可能属于多种类型时，使用类型后缀来指定类型；</li>
+<li>可以使用 <code>_</code> 作为可视分隔符以方便阅读。</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>数字字面量</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>二进制</td>
+<td><code>0b1111_0000</code></td>
+</tr>
+<tr>
+<td>八进制</td>
+<td><code>0o77</code></td>
+</tr>
+<tr>
+<td>十进制</td>
+<td><code>10_000</code></td>
+</tr>
+<tr>
+<td>十六进制</td>
+<td><code>0xff</code></td>
+</tr>
+<tr>
+<td>字节（仅限于<code>u8</code>）</td>
+<td><code>b'A'</code></td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="浮点类型">浮点类型</h4>
+<p>Rust 的浮点型有两种，<code>f32</code>和默认的<code>f64</code>，它们的大小分别为32位和64位，所有的浮点型都是有符号的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// f64
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">y</span>: <span class="kt">f32</span> <span class="o">=</span><span class="w"> </span><span class="mf">3.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// f32
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="数字运算">数字运算</h4>
+<p>Rust的所有数字类型都支持基本数学运算。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">difference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">94.5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">3.1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">product</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">40</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">quotient</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">56.7</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">32.2</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">floored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">remainder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">43</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="布尔类型">布尔类型</h4>
+<p>布尔类型有两个值：<code>true</code>和<code>false</code>，使用<code>bool</code>进行声明，布尔值大小为1个字节。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">f</span>: <span class="kt">bool</span> <span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="字符类型">字符类型</h4>
+<p>字符类型采用<code>char</code>声明，使用单引号括起来，字符类型大小为4个字节，表示的是一个Unicode标量值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;a&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">b</span>: <span class="kt">char</span> <span class="o">=</span><span class="w"> </span><span class="sc">&#39;b&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;中&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="复合类型">复合类型</h3>
+<p><strong>复合类型</strong>可以将多个值组合成一个类型，元组合数组是rust中两个基本的复合类型。</p>
+<h4 id="元组类型">元组类型</h4>
+<p>元组是将多种类型组合成为一种复合类型的方式，其长度在声明之后不可变。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo --version
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">tup</span>: <span class="p">(</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="kt">u8</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mf">6.4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>使用cargo创建名为demo的项目</li>
-</ul>
+</div><p>元组可以使用模式匹配的方式来解构，从而获取某一个值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">tup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mf">6.4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tup</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;The value of y is: </span><span class="si">{}</span><span class="s">&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>也可以通过句点后跟索引（从<code>0</code>开始）的方式来访问元素。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">x</span>: <span class="p">(</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">f64</span><span class="p">,</span><span class="w"> </span><span class="kt">u8</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mf">6.4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">five_hundred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">six_point_four</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="mi">2</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>没有任何值的元组 <code>()</code> 是一种特殊的类型，只有一个值，写为 <code>()</code>。该类型被称为<strong>单元类型</strong>，该值被称为<strong>单元值</strong>。如果表达式不返回任何其他值，就隐式地返回单元值。</p>
+<h4 id="数组类型">数组类型</h4>
+<p>数组可以将多个值组合在一起，但要求元素的类型是相同的，数组具有相同的类型。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo new demo
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>使用cargo构建项目</li>
-</ul>
+</div><p>数组可以使用方括号进行声明，指定元素类型和元素数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo build
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">a</span>: <span class="p">[</span><span class="kt">i32</span><span class="p">;</span><span class="w"> </span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>使用cargo构建并运行项目</li>
-</ul>
+</div><p>也可以在声明时指定值来初始化。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo run
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="mi">5</span><span class="p">];</span><span class="w"> </span><span class="c1">// 等同于 let a = [3, 3, 3, 3, 3];
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>使用cargo构建项目并检查错误，不生成二进制文件</li>
-</ul>
+</div><p>数组通过中括号加索引（从<code>0</code>开始）的方式访问元素。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo check
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">];</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
-</div><ul>
-<li>使用cargo发布构建，优化并编译项目，在<code>target/release</code>生成可执行文件</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">0
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cargo build --release
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="cargotoml">Cargo.toml</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 0
-</span><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># 包配置</span>
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">package</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="c"># 项目名</span>
-</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;demo&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c"># 项目版本</span>
-</span></span><span class="line"><span class="cl"><span class="nx">version</span> <span class="p">=</span> <span class="s2">&#34;0.1.0&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c"># Rust大版本</span>
-</span></span><span class="line"><span class="cl"><span class="nx">edition</span> <span class="p">=</span> <span class="s2">&#34;2021&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c"># 依赖</span>
-</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="nx">dependencies</span><span class="p">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>参考链接：<a class="link" href="https://rustwiki.org/zh-CN/book/ch01-03-hello-cargo.html"  target="_blank" rel="noopener"
-    >Rust 入门指南</a></p>
+</div><p>参考链接：<a class="link" href="https://rustwiki.org/zh-CN/book/ch03-00-common-programming-concepts.html"  target="_blank" rel="noopener"
+    >Rust 通用编程概念</a></p>
 
 </section>
 
@@ -543,12 +751,12 @@ This&#39;s it.
                 
                     
 <article class="">
-    <a href="/post/rust-variables-and-data-types/">
+    <a href="/post/rust-start/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Rust 变量与数据类型</h2>
+            <h2 class="article-title">Rust Start</h2>
         </div>
     </a>
 </article>
