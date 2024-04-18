@@ -15,6 +15,9 @@
 <meta name="twitter:description" content="Dynamic-Datasource 在pom.xml中导入依赖 0 1 2 3 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.baomidou&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;dynamic-datasource-spring-boot-starter&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; 在application.yml中配置动态数据源 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 spring: datasource: dynamic: # 设置默认的数据源或者数据源组,默认值即为main primary: main # 严格匹配数据源,默认false. true未匹配到指定数据源时抛异常,false使用默认数据源 strict: false datasource: # 默认数据源 main: url: url username: username password: passward driver-class-name: xxx.Dirver # 其他数据源 slave_1: url: url username: username password: passward driver-class-name: xxx.Dirver 在Service方法上使用@DS注解 0 1 2 3 4 5 6 7 8 9 10 11 12 public interface DemoService { void testDynamicFunc(); } @Service public class DemoServiceImpl implements DemoService { @Override @DS(&amp;#34;main&amp;#34;) @Transactional(rollbackFor = Exception.">
     <link rel="shortcut icon" href="/favicon.ico" />
 
+  
+
+
     </head>
     <body class="
     article-page

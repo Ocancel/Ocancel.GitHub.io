@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Java 工具类打包'>
-<title>Java Util Packaging</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='用户管理 新增管理员用户及配置 新增用户 0 sudo useradd admin 赋予sudo权限 0 sudo usermod -aG sudo ssh配置 使用vim编辑器打开ssh配置文件：
+0 vim /etc/ssh/sshd_config 如下是一下常用配置：
+0 1 2 3 4 # 禁止root用户远程登录 PermitRootLogin no # 只允许以下用户远程登录 AllowUsers admin ufw防火墙 安装ufw防火墙 0 1 sudo apt update sudo apt install ufw 默认策略配置 0 1 2 3 4 # 默认放行所有出站流量 ufw default allow outgoing # 默认阻止所有入站流量 ufw default deny incoming 规则配置 0 1 2 3 4 5 6 7 8 9 10 11 12 13 # 查看所有规则 ufw status verbose # 放行22端口的TCP流量入站 ufw allow 22/tcp # 放行openssh服务的流量入站 ufw allow openssh # 移除22端口的流量入站 ufw delete allow 22 # 移除openssh服务的流量入站 ufw delete allow openssh 常用服务名和对应默认端口：'>
+<title>Debian 常用配置</title>
 
-<link rel='canonical' href='https://Ocancel.GitHub.io/post/java-util-packaging/'>
+<link rel='canonical' href='https://Ocancel.GitHub.io/post/debian-common-configuration/'>
 
-<link rel="stylesheet" href="/scss/style.min.5a29fef0a6a3da2d98b0bfa78d55801413805644bb52b1d67b8f5f5c63e7ad00.css"><meta property='og:title' content='Java Util Packaging'>
-<meta property='og:description' content='Java 工具类打包'>
-<meta property='og:url' content='https://Ocancel.GitHub.io/post/java-util-packaging/'>
+<link rel="stylesheet" href="/scss/style.min.5a29fef0a6a3da2d98b0bfa78d55801413805644bb52b1d67b8f5f5c63e7ad00.css"><meta property='og:title' content='Debian 常用配置'>
+<meta property='og:description' content='用户管理 新增管理员用户及配置 新增用户 0 sudo useradd admin 赋予sudo权限 0 sudo usermod -aG sudo ssh配置 使用vim编辑器打开ssh配置文件：
+0 vim /etc/ssh/sshd_config 如下是一下常用配置：
+0 1 2 3 4 # 禁止root用户远程登录 PermitRootLogin no # 只允许以下用户远程登录 AllowUsers admin ufw防火墙 安装ufw防火墙 0 1 sudo apt update sudo apt install ufw 默认策略配置 0 1 2 3 4 # 默认放行所有出站流量 ufw default allow outgoing # 默认阻止所有入站流量 ufw default deny incoming 规则配置 0 1 2 3 4 5 6 7 8 9 10 11 12 13 # 查看所有规则 ufw status verbose # 放行22端口的TCP流量入站 ufw allow 22/tcp # 放行openssh服务的流量入站 ufw allow openssh # 移除22端口的流量入站 ufw delete allow 22 # 移除openssh服务的流量入站 ufw delete allow openssh 常用服务名和对应默认端口：'>
+<meta property='og:url' content='https://Ocancel.GitHub.io/post/debian-common-configuration/'>
 <meta property='og:site_name' content='Xiaoqi&#39;s Site'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-02-18T14:50:36&#43;08:00'/><meta property='article:modified_time' content='2024-02-20T09:24:19&#43;08:00'/>
-<meta name="twitter:title" content="Java Util Packaging">
-<meta name="twitter:description" content="Java 工具类打包">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Debian' /><meta property='article:published_time' content='2024-04-17T11:20:43&#43;08:00'/><meta property='article:modified_time' content='2024-04-18T10:16:40&#43;08:00'/>
+<meta name="twitter:title" content="Debian 常用配置">
+<meta name="twitter:description" content="用户管理 新增管理员用户及配置 新增用户 0 sudo useradd admin 赋予sudo权限 0 sudo usermod -aG sudo ssh配置 使用vim编辑器打开ssh配置文件：
+0 vim /etc/ssh/sshd_config 如下是一下常用配置：
+0 1 2 3 4 # 禁止root用户远程登录 PermitRootLogin no # 只允许以下用户远程登录 AllowUsers admin ufw防火墙 安装ufw防火墙 0 1 sudo apt update sudo apt install ufw 默认策略配置 0 1 2 3 4 # 默认放行所有出站流量 ufw default allow outgoing # 默认阻止所有入站流量 ufw default deny incoming 规则配置 0 1 2 3 4 5 6 7 8 9 10 11 12 13 # 查看所有规则 ufw status verbose # 放行22端口的TCP流量入站 ufw allow 22/tcp # 放行openssh服务的流量入站 ufw allow openssh # 移除22端口的流量入站 ufw delete allow 22 # 移除openssh服务的流量入站 ufw delete allow openssh 常用服务名和对应默认端口：">
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -324,15 +330,31 @@ This&#39;s it.
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#需求">需求</a></li>
-    <li><a href="#实现">实现</a>
+    <li><a href="#用户管理">用户管理</a>
       <ol>
-        <li><a href="#1-新建项目">1. 新建项目</a></li>
-        <li><a href="#2-编写工具类">2. 编写工具类</a></li>
-        <li><a href="#3-打包项目">3. 打包项目</a></li>
+        <li><a href="#新增管理员用户及配置">新增管理员用户及配置</a>
+          <ol>
+            <li><a href="#新增用户">新增用户</a></li>
+            <li><a href="#赋予sudo权限">赋予<code>sudo</code>权限</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
-    <li><a href="#使用">使用</a></li>
+    <li><a href="#ssh配置"><code>ssh</code>配置</a></li>
+    <li><a href="#ufw防火墙"><code>ufw</code>防火墙</a>
+      <ol>
+        <li><a href="#安装ufw防火墙">安装ufw防火墙</a></li>
+        <li><a href="#默认策略配置">默认策略配置</a></li>
+        <li><a href="#规则配置">规则配置</a></li>
+        <li><a href="#启停防火墙">启停防火墙</a></li>
+      </ol>
+    </li>
+    <li><a href="#环境变量">环境变量</a>
+      <ol>
+        <li><a href="#bash"><code>bash</code></a></li>
+        <li><a href="#zsh"><code>zsh</code></a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -351,8 +373,8 @@ This&#39;s it.
     
     <header class="article-category">
         
-            <a href="/categories/java/" >
-                Java
+            <a href="/categories/linux/" >
+                Linux
             </a>
         
     </header>
@@ -360,13 +382,9 @@ This&#39;s it.
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/post/java-util-packaging/">Java Util Packaging</a>
+            <a href="/post/debian-common-configuration/">Debian 常用配置</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            Java 工具类打包
-        </h3>
         
     </div>
 
@@ -378,7 +396,7 @@ This&#39;s it.
         
             <div>
                 <svg t="1685552137132" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2696" width="200" height="200"><path d="M725.333333 170.666667h74.709334C864.853333 170.666667 917.333333 223.189333 917.333333 288.096V799.893333C917.333333 864.757333 864.832 917.333333 800.042667 917.333333H223.957333C159.146667 917.333333 106.666667 864.810667 106.666667 799.904V288.106667C106.666667 223.242667 159.168 170.666667 223.957333 170.666667H298.666667v-32a32 32 0 0 1 64 0v32h298.666666v-32a32 32 0 0 1 64 0v32z m0 64v32a32 32 0 0 1-64 0v-32H362.666667v32a32 32 0 0 1-64 0v-32h-74.709334A53.354667 53.354667 0 0 0 170.666667 288.096V799.893333A53.301333 53.301333 0 0 0 223.957333 853.333333h576.085334A53.354667 53.354667 0 0 0 853.333333 799.904V288.106667A53.301333 53.301333 0 0 0 800.042667 234.666667H725.333333z m-10.666666 224a32 32 0 0 1 0 64H309.333333a32 32 0 0 1 0-64h405.333334zM586.666667 618.666667a32 32 0 0 1 0 64H309.333333a32 32 0 0 1 0-64h277.333334z" fill="currentColor" p-id="2697"></path></svg>
-                <time class="article-time--published">Feb 18 2024</time>
+                <time class="article-time--published">Apr 17 2024</time>
             </div>
         
 
@@ -401,11 +419,83 @@ This&#39;s it.
     <section class="article-content">
     
     
-    <h2 id="需求">需求</h2>
-<p>将Java工具类打包成<code>jar</code>，方便其他项目导入依赖使用。</p>
-<h2 id="实现">实现</h2>
-<h3 id="1-新建项目">1. 新建项目</h3>
-<p>创建Maven项目，编写<code>pom.xml</code>如下：</p>
+    <h2 id="用户管理">用户管理</h2>
+<h3 id="新增管理员用户及配置">新增管理员用户及配置</h3>
+<h4 id="新增用户">新增用户</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo useradd admin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="赋予sudo权限">赋予<code>sudo</code>权限</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo usermod -aG sudo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="ssh配置"><code>ssh</code>配置</h2>
+<p>使用<code>vim</code>编辑器打开<code>ssh</code>配置文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vim /etc/ssh/sshd_config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如下是一下常用配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># 禁止root用户远程登录
+</span></span><span class="line"><span class="cl">PermitRootLogin no
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># 只允许以下用户远程登录
+</span></span><span class="line"><span class="cl">AllowUsers admin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="ufw防火墙"><code>ufw</code>防火墙</h2>
+<h3 id="安装ufw防火墙">安装ufw防火墙</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt update 
+</span></span><span class="line"><span class="cl">sudo apt install ufw
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="默认策略配置">默认策略配置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 默认放行所有出站流量 </span>
+</span></span><span class="line"><span class="cl">ufw default allow outgoing
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 默认阻止所有入站流量 </span>
+</span></span><span class="line"><span class="cl">ufw default deny incoming
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="规则配置">规则配置</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 0
@@ -422,74 +512,35 @@ This&#39;s it.
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>  
-</span></span><span class="line"><span class="cl">         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&#34;</span><span class="nt">&gt;</span>  
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>  
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>com.example<span class="nt">&lt;/groupId&gt;</span>  
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>demo<span class="nt">&lt;/artifactId&gt;</span>  
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>  
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>  
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;name&gt;</span>demo<span class="nt">&lt;/name&gt;</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;dependencies&gt;</span>        
-</span></span><span class="line"><span class="cl">        ... 
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/dependencies&gt;</span>  
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;build&gt;</span>        
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;finalName&gt;</span>demo-util-1.0.0<span class="nt">&lt;/finalName&gt;</span>  
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;plugins&gt;</span>  
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;plugin&gt;</span>  
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>  
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>  
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;version&gt;</span>3.3<span class="nt">&lt;/version&gt;</span>  
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;configuration&gt;</span>  
-</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;source&gt;</span>1.8<span class="nt">&lt;/source&gt;</span>  
-</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;target&gt;</span>1.8<span class="nt">&lt;/target&gt;</span>  
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;/configuration&gt;</span>  
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/plugin&gt;</span>  
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;plugin&gt;</span>  
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>  
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;artifactId&gt;</span>maven-assembly-plugin<span class="nt">&lt;/artifactId&gt;</span>  
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;version&gt;</span>2.5.5<span class="nt">&lt;/version&gt;</span>  
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;configuration&gt;</span>  
-</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;descriptorRefs&gt;</span>  
-</span></span><span class="line"><span class="cl">                        <span class="nt">&lt;descriptorRef&gt;</span>jar-with-dependencies<span class="nt">&lt;/descriptorRef&gt;</span>  
-</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;/descriptorRefs&gt;</span>  
-</span></span><span class="line"><span class="cl">                    <span class="nt">&lt;appendAssemblyId&gt;</span>false<span class="nt">&lt;/appendAssemblyId&gt;</span>  
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;/configuration&gt;</span>  
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/plugin&gt;</span>  
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/plugins&gt;</span>  
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/build&gt;</span>  
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 查看所有规则</span>
+</span></span><span class="line"><span class="cl">ufw status verbose
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 放行22端口的TCP流量入站</span>
+</span></span><span class="line"><span class="cl">ufw allow 22/tcp
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 放行openssh服务的流量入站</span>
+</span></span><span class="line"><span class="cl">ufw allow openssh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 移除22端口的流量入站</span>
+</span></span><span class="line"><span class="cl">ufw delete allow <span class="m">22</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 移除openssh服务的流量入站</span>
+</span></span><span class="line"><span class="cl">ufw delete allow openssh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="2-编写工具类">2. 编写工具类</h3>
-<p>在<code>demo/src/main/java/com/example</code>目录下新建工具类<code>DemoUtil.class</code>。</p>
+</div><blockquote>
+<p>常用服务名和对应默认端口：</p>
+<ul>
+<li><code>openssh:22</code></li>
+<li><code>telnet:23</code></li>
+<li><code>smtp:25</code></li>
+<li><code>http:80</code></li>
+<li><code>https:443</code></li>
+</ul>
+</blockquote>
+<h3 id="启停防火墙">启停防火墙</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
@@ -502,20 +553,32 @@ This&#39;s it.
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nn">com.example</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DemoUtil</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;success&#34;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 启用</span>
+</span></span><span class="line"><span class="cl">ufw <span class="nb">enable</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 停止</span>
+</span></span><span class="line"><span class="cl">ufw disable
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看防火墙状态</span>
+</span></span><span class="line"><span class="cl">ufw status
+</span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="3-打包项目">3. 打包项目</h3>
-<p>在Maven工具中，使用<code>assembly:assembly</code>打包，在<code>demo/target</code>目录下将生成<code>demo-util-1.0.0.jar</code>文件。</p>
-<h2 id="使用">使用</h2>
-<p>在其他项目中导入<code>demo-util-1.0.0.jar</code>依赖后即可使用。</p>
+</div><h2 id="环境变量">环境变量</h2>
+<p>环境变量配置以<code>JDK</code>为例。</p>
+<h3 id="bash"><code>bash</code></h3>
+<p>在<code>bash</code>中，会自动加载<code>/etc/profile.d/</code>目录下<code>*.sh</code>文件。</p>
+<p>在<code>/etc/profile.d/</code>目录下，新建<code>jdk_env.sh</code>文件并编辑：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo touch /etc/profile.d/jdk_env.sh
+</span></span><span class="line"><span class="cl">sudo vim /etc/profile.d/jdk_enc.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>写入JDK环境变量配置：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">0
@@ -523,18 +586,25 @@ This&#39;s it.
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">com.example.DemoUtil</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestJar</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">DemoUtil</span><span class="p">.</span><span class="na">test</span><span class="p">());</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl"># Set JDK home directory
+</span></span><span class="line"><span class="cl">export JAVA_HOME=&#34;/path/to/your/jdk-11&#34;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Add JDK bin directory to PATH
+</span></span><span class="line"><span class="cl">export PATH=&#34;$PATH:$JAVA_HOME/bin&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="zsh"><code>zsh</code></h3>
+<p>在<code>zsh</code>中不会自动加载<code>/etc/profile.d/</code>目录下<code>*.sh</code>文件，需要手动<code>source</code>使其生效。</p>
+<p>编辑<code>/etc/zsh/zprofile</code>文件，并增加如下配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">0
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">source</span> /etc/profile.d/jdk_env.sh
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </section>
@@ -542,6 +612,12 @@ This&#39;s it.
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/debian/">Debian</a>
+        
+    </section>
+
 
     
     <section class="article-copyright">
@@ -552,7 +628,7 @@ This&#39;s it.
     <section class="article-lastmod">
         <svg t="1685582516965" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="58581" width="200" height="200"><path d="M740.23 957.13c-106.95 0-193.97-87.02-193.97-193.97s87.02-193.97 193.97-193.97S934.2 656.2 934.2 763.15s-87.02 193.98-193.97 193.98z m0-324.78c-72.12 0-130.8 58.69-130.8 130.8s58.69 130.8 130.8 130.8 130.8-58.69 130.8-130.8-58.69-130.8-130.8-130.8z" fill="currentColor" p-id="58582"></path><path d="M508.5 936.85H204.41C141.32 936.85 90 885.53 90 822.46V264.35c0-63.07 51.33-114.39 114.41-114.39h590.52c63.07 0 114.39 51.33 114.39 114.39v255.13c0 17.44-14.15 31.59-31.59 31.59-17.44 0-31.59-14.15-31.59-31.59V264.35c0-28.25-22.97-51.22-51.22-51.22H204.41c-28.25 0-51.24 22.97-51.24 51.22v558.11c0 28.25 22.99 51.22 51.24 51.22H508.5c17.44 0 31.59 14.15 31.59 31.59s-14.15 31.58-31.59 31.58z" fill="currentColor" p-id="58583"></path><path d="M318.5 270.72c-17.44 0-31.59-14.15-31.59-31.59V98.71c0-17.44 14.15-31.59 31.59-31.59s31.59 14.15 31.59 31.59v140.43c-0.01 17.44-14.16 31.58-31.59 31.58zM680.84 270.72c-17.44 0-31.59-14.15-31.59-31.59V98.71c0-17.44 14.15-31.59 31.59-31.59 17.44 0 31.59 14.15 31.59 31.59v140.43c0 17.44-14.15 31.58-31.59 31.58zM777.14 434H222.18c-17.44 0-31.59-14.15-31.59-31.59s14.15-31.59 31.59-31.59h554.96c17.44 0 31.59 14.15 31.59 31.59S794.58 434 777.14 434z" fill="currentColor" p-id="58584"></path><path d="M785.59 796.92h-42.4c-23.61 0-42.81-19.21-42.81-42.83V696.4c0-17.44 14.15-31.59 31.59-31.59 17.44 0 31.59 14.15 31.59 31.59v37.34h22.04c17.44 0 31.59 14.15 31.59 31.59s-14.16 31.59-31.6 31.59z" fill="currentColor" p-id="58585"></path></svg>
         <span>
-            最后更新于 Feb 20 2024 09:24 CST
+            最后更新于 Apr 18 2024 10:16 CST
         </span>
     </section>
     <section class="article-sponsor">
@@ -590,31 +666,25 @@ This&#39;s it.
                 
                     
 <article class="">
-    <a href="/post/maven-project-import-local-jar/">
+    <a href="/post/linux-tail/">
         
         
 
         <div class="article-details">
-            <h2 class="article-title">Maven 导入本地Jar包</h2>
+            <h2 class="article-title">Linux tail</h2>
         </div>
     </a>
 </article>
 
                 
                     
-<article class="has-image">
-    <a href="/post/java-hashmap/">
+<article class="">
+    <a href="/post/linux-chmod/">
         
-        
-            <div class="article-image">
-                
-                    <img src="https://cdn.jsdelivr.net/gh/Ocancel/uPicRepo@main/uPic/HashMap%e7%9a%84put%e6%b5%81%e7%a8%8b-1686125896466.png" loading="lazy" data-key="java-hashmap" data-hash="https://cdn.jsdelivr.net/gh/Ocancel/uPicRepo@main/uPic/HashMap的put流程-1686125896466.png"/>
-                
-            </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">Java HashMap</h2>
+            <h2 class="article-title">Linux chmod</h2>
         </div>
     </a>
 </article>
