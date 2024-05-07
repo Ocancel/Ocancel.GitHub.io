@@ -4,7 +4,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='导入Jar包 在maven项目根目录下新建名为lib的文件夹，将准备好的外部jar包移到该目录下。
 配置Jar包依赖 使用pom.xml文件scope的system属性来引入jar包：
 0 1 2 3 4 5 6 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.example&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;demo&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;system&amp;lt;/scope&amp;gt; &amp;lt;systemPath&amp;gt;${project.basedir}/lib/demo.jar&amp;lt;/systemPath&amp;gt; &amp;lt;/dependency&amp;gt; 在这种方式下，如果需要打包发布，还需要额外配置:
-0 1 2 3 4 5 6 7 8 9 10 &amp;lt;build&amp;gt; &amp;lt;resources&amp;gt; &amp;lt;resource&amp;gt; &amp;lt;directory&amp;gt;lib&amp;lt;/directory&amp;gt; &amp;lt;targetPath&amp;gt;/BOOT-INF/lib/&amp;lt;/targetPath&amp;gt; &amp;lt;includes&amp;gt; &amp;lt;include&amp;gt;**/*.jar&amp;lt;/include&amp;gt; &amp;lt;/includes&amp;gt; &amp;lt;/resource&amp;gt; &amp;lt;/resources&amp;gt; &amp;lt;/build&amp;gt; '>
+0 1 2 3 4 5 6 7 8 9 10 &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;includeSystemScope&amp;gt;true&amp;lt;/includeSystemScope&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt; '>
 <title>Maven 导入本地Jar包</title>
 
 <link rel='canonical' href='https://Ocancel.GitHub.io/post/maven-project-import-local-jar/'>
@@ -13,7 +13,7 @@
 <meta property='og:description' content='导入Jar包 在maven项目根目录下新建名为lib的文件夹，将准备好的外部jar包移到该目录下。
 配置Jar包依赖 使用pom.xml文件scope的system属性来引入jar包：
 0 1 2 3 4 5 6 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.example&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;demo&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;system&amp;lt;/scope&amp;gt; &amp;lt;systemPath&amp;gt;${project.basedir}/lib/demo.jar&amp;lt;/systemPath&amp;gt; &amp;lt;/dependency&amp;gt; 在这种方式下，如果需要打包发布，还需要额外配置:
-0 1 2 3 4 5 6 7 8 9 10 &amp;lt;build&amp;gt; &amp;lt;resources&amp;gt; &amp;lt;resource&amp;gt; &amp;lt;directory&amp;gt;lib&amp;lt;/directory&amp;gt; &amp;lt;targetPath&amp;gt;/BOOT-INF/lib/&amp;lt;/targetPath&amp;gt; &amp;lt;includes&amp;gt; &amp;lt;include&amp;gt;**/*.jar&amp;lt;/include&amp;gt; &amp;lt;/includes&amp;gt; &amp;lt;/resource&amp;gt; &amp;lt;/resources&amp;gt; &amp;lt;/build&amp;gt; '>
+0 1 2 3 4 5 6 7 8 9 10 &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;includeSystemScope&amp;gt;true&amp;lt;/includeSystemScope&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt; '>
 <meta property='og:url' content='https://Ocancel.GitHub.io/post/maven-project-import-local-jar/'>
 <meta property='og:site_name' content='Xiaoqi&#39;s Site'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='maven' /><meta property='article:published_time' content='2024-04-02T17:13:26&#43;08:00'/><meta property='article:modified_time' content='2024-04-02T17:26:43&#43;08:00'/>
@@ -21,7 +21,7 @@
 <meta name="twitter:description" content="导入Jar包 在maven项目根目录下新建名为lib的文件夹，将准备好的外部jar包移到该目录下。
 配置Jar包依赖 使用pom.xml文件scope的system属性来引入jar包：
 0 1 2 3 4 5 6 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.example&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;demo&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;system&amp;lt;/scope&amp;gt; &amp;lt;systemPath&amp;gt;${project.basedir}/lib/demo.jar&amp;lt;/systemPath&amp;gt; &amp;lt;/dependency&amp;gt; 在这种方式下，如果需要打包发布，还需要额外配置:
-0 1 2 3 4 5 6 7 8 9 10 &amp;lt;build&amp;gt; &amp;lt;resources&amp;gt; &amp;lt;resource&amp;gt; &amp;lt;directory&amp;gt;lib&amp;lt;/directory&amp;gt; &amp;lt;targetPath&amp;gt;/BOOT-INF/lib/&amp;lt;/targetPath&amp;gt; &amp;lt;includes&amp;gt; &amp;lt;include&amp;gt;**/*.jar&amp;lt;/include&amp;gt; &amp;lt;/includes&amp;gt; &amp;lt;/resource&amp;gt; &amp;lt;/resources&amp;gt; &amp;lt;/build&amp;gt; ">
+0 1 2 3 4 5 6 7 8 9 10 &amp;lt;build&amp;gt; &amp;lt;plugins&amp;gt; &amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-maven-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;includeSystemScope&amp;gt;true&amp;lt;/includeSystemScope&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;/plugin&amp;gt; &amp;lt;/plugins&amp;gt; &amp;lt;/build&amp;gt; ">
     <link rel="shortcut icon" href="/favicon.ico" />
 
   
@@ -444,15 +444,15 @@ This&#39;s it.
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;build&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;resources&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;resource&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;directory&gt;</span>lib<span class="nt">&lt;/directory&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;targetPath&gt;</span>/BOOT-INF/lib/<span class="nt">&lt;/targetPath&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;includes&gt;</span>
-</span></span><span class="line"><span class="cl">                <span class="nt">&lt;include&gt;</span>**/*.jar<span class="nt">&lt;/include&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/includes&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/resource&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/resources&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;plugins&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;plugin&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;configuration&gt;</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&lt;includeSystemScope&gt;</span>true<span class="nt">&lt;/includeSystemScope&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;/configuration&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/plugin&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/plugins&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/build&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
